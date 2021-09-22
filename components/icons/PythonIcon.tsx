@@ -12,8 +12,8 @@ const PythonIcon: React.FC<SvgIconProps> = (props) => (
         y1="12.0393928%"
         y2="78.2008538%"
       >
-        <stop offset="0%" stop-color="#387EB8" />
-        <stop offset="100%" stop-color="#366994" />
+        <stop offset="0%" stopColor="#387EB8" />
+        <stop offset="100%" stopColor="#366994" />
       </linearGradient>
       <linearGradient
         id="b"
@@ -22,8 +22,8 @@ const PythonIcon: React.FC<SvgIconProps> = (props) => (
         y1="20.5791813%"
         y2="88.4290372%"
       >
-        <stop offset="0%" stop-color="#FFE052" />
-        <stop offset="100%" stop-color="#FFC331" />
+        <stop offset="0%" stopColor="#FFE052" />
+        <stop offset="100%" stopColor="#FFC331" />
       </linearGradient>
     </defs>
     <path

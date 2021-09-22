@@ -10,7 +10,7 @@ const RustIcon: React.FC<SvgIconProps> = (props) => (
     />
     <path
       fill="#000"
-      fill-rule="evenodd"
+      fillRule="evenodd"
       stroke="#000"
       strokeLinecap="round"
       strokeLinejoin="round"
