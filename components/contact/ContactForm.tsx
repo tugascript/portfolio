@@ -97,8 +97,33 @@ const ContactForm: FC = () => {
       }),
     });
 
-    const data = await response.json();
-    if (data.status === 400) {
+    try {
+      const data = await response.json();
+
+      if (data.status === 200) {
+        setState({
+          status: "success",
+          message:
+            language === "en"
+              ? "Message sent successfully!"
+              : "Mensagem enviada com sucesso!",
+          open: true,
+          loading: false,
+        });
+        helpers.setTouched({ name: false, email: false, body: false });
+        helpers.setValues(initialValues);
+      } else {
+        setState({
+          status: "error",
+          message:
+            language === "en"
+              ? "Something went wrong."
+              : "Ocorreu algo de errado.",
+          open: true,
+          loading: false,
+        });
+      }
+    } catch (error) {
       setState({
         status: "error",
         message:
@@ -108,21 +133,6 @@ const ContactForm: FC = () => {
         open: true,
         loading: false,
       });
-      return;
-    }
-
-    if (data.status === 200) {
-      setState({
-        status: "success",
-        message:
-          language === "en"
-            ? "Message sent successfully!"
-            : "Mensagem enviada com sucesso!",
-        open: true,
-        loading: false,
-      });
-      helpers.setTouched({ name: false, email: false, body: false });
-      helpers.setValues(initialValues);
     }
   };
 
