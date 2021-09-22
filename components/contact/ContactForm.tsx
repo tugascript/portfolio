@@ -21,6 +21,7 @@ interface IState {
   status: "success" | "error";
   message: string;
   open: boolean;
+  loading: boolean;
 }
 
 const StyledForm = styled(AppForm)({
@@ -57,6 +58,7 @@ const ContactForm: FC = () => {
     status: "success",
     message: "",
     open: false,
+    loading: false,
   });
 
   const initialValues: IForm = {
@@ -75,6 +77,8 @@ const ContactForm: FC = () => {
     { name, email, body }: IForm,
     helpers: FormikHelpers<IForm>
   ) => {
+    setState((prevState) => ({ ...prevState, loading: true }));
+
     const token = await reRef.current?.executeAsync();
     reRef.current?.reset();
 
@@ -100,6 +104,7 @@ const ContactForm: FC = () => {
             ? "Something went wrong."
             : "Ocorreu algo de errado.",
         open: true,
+        loading: false,
       });
       return;
     }
@@ -112,6 +117,7 @@ const ContactForm: FC = () => {
             ? "Message sent successfully!"
             : "Mensagem enviada com sucesso!",
         open: true,
+        loading: false,
       });
       helpers.setTouched({ name: false, email: false, body: false });
       helpers.setValues(initialValues);
@@ -134,21 +140,21 @@ const ContactForm: FC = () => {
         className="contact-form-field"
         name="name"
         label={textArr[0][language]}
-        loading={false}
+        loading={state.loading}
       />
       <AppFormField
         className="contact-form-field"
         name="email"
         label={textArr[1][language]}
         type="email"
-        loading={false}
+        loading={state.loading}
       />
       <AppFormField
         className="contact-form-field"
         name="body"
         label={textArr[2][language]}
         rows={5}
-        loading={false}
+        loading={state.loading}
         multiline
       />
       <ReCAPTCHA
@@ -156,7 +162,7 @@ const ContactForm: FC = () => {
         ref={reRef}
         size="invisible"
       />
-      <AppSubmitButton text="Send" />
+      <AppSubmitButton text="Send" loading={state.loading} />
     </StyledForm>
   );
 };

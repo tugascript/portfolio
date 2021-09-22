@@ -5,6 +5,7 @@ import React from "react";
 
 interface IProps {
   text: string;
+  loading: boolean;
   color?:
     | "inherit"
     | "primary"
@@ -25,12 +26,14 @@ const AppSubmitButton: React.FC<IProps> = ({
   text,
   variant = "contained",
   color = "secondary",
+  loading,
   ...rest
 }) => (
   <Grid item {...rest}>
     <Button
       fullWidth
       disableElevation
+      disabled={loading}
       variant={variant}
       color={color}
       size="large"
