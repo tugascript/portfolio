@@ -44,7 +44,13 @@ export default async function handler(
 ): Promise<void> {
   if (req.method === "POST") {
     const formData: IFormData = req.body;
-    const isHuman = await validateHuman(formData.token);
+    let isHuman = true;
+
+    try {
+      isHuman = await validateHuman(formData.token);
+    } catch (error) {
+      isHuman = false;
+    }
 
     if (!isHuman) {
       res.status(400).json({ status: 400, message: "Something went wrong" });
