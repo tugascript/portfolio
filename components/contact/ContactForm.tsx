@@ -35,6 +35,8 @@ const textArr: IText[] = [
   { en: "Name", pt: "Nome" },
   { en: "Email", pt: "Correio Eletrónico" },
   { en: "Message", pt: "Mensagem" },
+  { en: "Send", pt: "Enviar" },
+  { en: "Loading...", pt: "Aguarde..." },
 ];
 
 const validationSchema: Yup.SchemaOf<IForm> = Yup.object().shape({
@@ -162,7 +164,10 @@ const ContactForm: FC = () => {
         ref={reRef}
         size="invisible"
       />
-      <AppSubmitButton text="Send" loading={state.loading} />
+      <AppSubmitButton
+        text={state.loading ? textArr[4][language] : textArr[3][language]}
+        loading={state.loading}
+      />
     </StyledForm>
   );
 };

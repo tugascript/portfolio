@@ -1,6 +1,7 @@
 import type { GridSize } from "@mui/material";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import { styled } from "@mui/material/styles";
 import React from "react";
 
 interface IProps {
@@ -22,6 +23,14 @@ interface IProps {
   xl?: GridSize;
 }
 
+const StyledBtn = styled(Button)(({ theme }) => ({
+  color: theme.palette.primary.main,
+  "&:disabled": {
+    color: "#fff",
+    backgroundColor: theme.palette.primary.light,
+  },
+}));
+
 const AppSubmitButton: React.FC<IProps> = ({
   text,
   variant = "contained",
@@ -30,7 +39,7 @@ const AppSubmitButton: React.FC<IProps> = ({
   ...rest
 }) => (
   <Grid item {...rest}>
-    <Button
+    <StyledBtn
       fullWidth
       disableElevation
       disabled={loading}
@@ -38,10 +47,9 @@ const AppSubmitButton: React.FC<IProps> = ({
       color={color}
       size="large"
       type="submit"
-      sx={{ color: (theme) => theme.palette.primary.main }}
     >
       {text}
-    </Button>
+    </StyledBtn>
   </Grid>
 );
 
