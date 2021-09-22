@@ -9,6 +9,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import { styled } from "@mui/material/styles";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Typography from "@mui/material/Typography";
+import clsx from "clsx";
 import { useRouter } from "next/router";
 import React from "react";
 import NodeJsIcon from "../../icons/NodeJsIcon";
@@ -101,16 +102,29 @@ const MenuDrawer: React.FC<IProps> = ({ open, handleOpen }) => {
       <DrawerList className={ClassesEnum.ROOT}>
         <ListItem
           button
-          className={`${ClassesEnum.ITEM} ${
-            router.asPath === "/" ? ClassesEnum.ITEM_ACTIVE : null
-          }`}
+          className={clsx(ClassesEnum.ITEM, {
+            [ClassesEnum.ITEM_ACTIVE]: router.asPath === "/",
+          })}
+          onClick={() => {
+            router.push("/");
+            handleOpen();
+          }}
         >
           <ListItemIcon className={ClassesEnum.ITEM_ICON}>
             <CreateOutlinedIcon color="inherit" />
           </ListItemIcon>
           CV
         </ListItem>
-        <ListItem button className={ClassesEnum.ITEM}>
+        <ListItem
+          button
+          className={clsx(ClassesEnum.ITEM, {
+            [ClassesEnum.ITEM_ACTIVE]: router.asPath === "/portfolio",
+          })}
+          onClick={() => {
+            router.push("/portfolio");
+            handleOpen();
+          }}
+        >
           <ListItemIcon className={ClassesEnum.ITEM_ICON}>
             <DescriptionOutlinedIcon color="inherit" />
           </ListItemIcon>
@@ -154,9 +168,17 @@ const MenuDrawer: React.FC<IProps> = ({ open, handleOpen }) => {
           item={ListItem}
           onClose={handleClose}
         />
-        <ListItem>
+        <ListItem
+          className={clsx(ClassesEnum.ITEM, {
+            [ClassesEnum.ITEM_ACTIVE]: router.asPath === "/contacts",
+          })}
+        >
           <Button
             className={ClassesEnum.ACTION_BTN}
+            onClick={() => {
+              router.push("/contacts");
+              handleOpen();
+            }}
             variant="contained"
             color="secondary"
             disableElevation
