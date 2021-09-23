@@ -29,7 +29,6 @@ enum ClassesEnum {
   TITLE = "portfolio-item-title",
   IMAGE = "portfolio-item-image",
   TEXT_AREA = "portfolio-item-text-area",
-  LINK_TITLE = "portfolio-item-link-title",
   LINK = "portfolio-item-link",
 }
 
@@ -47,12 +46,9 @@ const ItemCard = styled(Card)(({ theme }) => ({
       padding: "0.5em 0.25em",
     },
   },
-  [`& .${ClassesEnum.LINK_TITLE}`]: {
-    fontWeight: 700,
-  },
   [`& .${ClassesEnum.LINK}`]: {
     color: theme.palette.background.default,
-    textDecoration: "none",
+    textDecoration: "underline",
     "&:hover": {
       color: theme.palette.secondary.dark,
     },
@@ -109,16 +105,13 @@ const PortfolioItem: FC<IProps> = ({ title, image, links, stack, status }) => {
               <Grid item xs={8}>
                 {links.map(({ name, link }, i) => (
                   <Typography key={i} variant="body2">
-                    <span className={ClassesEnum.LINK_TITLE}>
-                      {name[language]}:
-                    </span>{" "}
                     <a
                       className={ClassesEnum.LINK}
                       href={link}
                       rel="noreferrer"
                       target="_blank"
                     >
-                      {link}
+                      {name[language]}
                     </a>
                   </Typography>
                 ))}

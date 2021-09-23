@@ -42,7 +42,7 @@ const portArr: ISectionProps[] = [
               },
               {
                 name: { en: "Back-end", pt: "Servidor" },
-                link: "https://github.com/tugascript/cabral",
+                link: "https://github.com/tugascript/nestjs-blog",
               },
             ],
           },
