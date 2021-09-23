@@ -130,7 +130,7 @@ const LongIntro: React.FC = () => {
             rel="noreferrer"
             href={
               language === "en"
-                ? "https://drive.google.com/file/d/13z19HzdHyVSa67dF8JhvZSWGgqpFjN3m/view?usp=sharing"
+                ? "https://drive.google.com/file/d/1aoJeI3VijQsGjAKpMCgWdJl_qJl7AuZX/view?usp=sharing"
                 : "https://drive.google.com/file/d/1FmLd_mSB4Bx6uy7rLcItMxJdpz7huQL_/view?usp=sharing"
             }
             target="_blank"
