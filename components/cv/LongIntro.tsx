@@ -15,16 +15,20 @@ const textArr: IText[] = [
     pt: "Quem sou eu?",
   },
   {
-    en: "I started my coding journey on my 1st year of electrical engineering at College. I ended up changing majors to Economics, the bachelor I completed with a good average (B of 75%) in Universidade da Beira Interior (UBI). Meanwhile, between the change, I have learnt JavaScript with the FreeCodeCamp community in Lisbon, where my passion for coding emerged.",
-    pt: "No 1º ano da universidade em Engenharia Electrotécnica, dei os meus primeiros passos na programação. Acabei por mudar de cursos porque descobri que gostaria de trabalhar mais com Economia, a licenciatura que acabei com 15 valores na Universidade da Beira Interior (UBI). Entre a mudança dos cursos aprendi JavaScript com a comunidade do FreeCodeCamp de Lisboa, onde tomei o gosto por programação.",
+    en: "My coding passion began on my 1st year of Electrical Engineering at college. As I changed to Economics, I studied at the University of Beira Interior and succeeded the Bachelor with a good grade (B of 75%). In the meantime I was learning JavaScript with the FreeCodeCamp community in Lisbon, where my interest for coding emerged.",
+    pt: "No 1º ano da universidade em Engenharia Electrotécnica, dei os meus primeiros passos na programação. Entretanto, mudei de curso pois descobri que gostaria mais de Economia: a licenciatura que acabei com 15 valores - Universidade da Beira Interior (UBI). Ao mesmo tempo, aprendi JavaScript com a comunidade do FreeCodeCamp de Lisboa, onde me entusiasmei com a programação.",
   },
   {
-    en: "Presently, my goal is to become a Data Scientist specialized in Healthcare Economics, since my passions are health and fitness. To achieve this goal I have learnt web development with Django and DRF, and I am continuously learning scientific python with Pandas, MatplotLib, SkitLearn and TensorFlow.",
-    pt: "Neste momento, o meu objectivo é trabalhar como Analista de Dados especializado em Economia da Saúde, visto que as minhas paixões são saúde e fitness.  Para concretizar este sonho aprendi desenvolvimento web com Django e DRF, e continuo a adquirir conhecimento em Python científico com Pandas, MatplotLib, SkitLearn e TensorFlow.",
+    en: "Nowadays, I intend to be a Data Scientist and specialize in Healthcare Economics: Health and Fitness are my favourite practice. To help with this goal I also learnt Web Development with Django and DRF. Learning Scientific Python with Pandas, MatplotLib, SkitLearn and TensorFlow is on progress.",
+    pt: "O meu objectivo é trabalhar como Analista de Dados especializado em Economia da Saúde, sendo as minhas paixões Saúde e Fitness.  Para atingir esta meta aprendi Web Development com Django e DRF. Continuo a adquirir conhecimento em Python científico com Pandas, MatplotLib, SkitLearn e TensorFlow.",
   },
   {
-    en: "Currently, the languages I am most comfortable with are TypeScript and Python. Recently I started learning Rust as well. As for frameworks, for Scientific Python I am continuously learning and improving, while for backend development apart from Django, I am very comfortable with NestJs.",
-    pt: "Atualmente, as linguagens que estou à vontade são TypeScript e Python. Recentemente comecei a aprender Rust. No que respeita a frameworks, o meu conhecimento em Python científico é um trabalho contínuo. Para desenvolver backends também me sinto confortável com NestJs.",
+    en: "My main programming languages are TypeScript and Python. Recently, I am learning Rust as well.",
+    pt: "As linguagens de programação em que estou à vontade são TypeScript e Python. Também comecei a aprender Rust.",
+  },
+  {
+    en: "In terms of Frameworks, I am still learning and improving Scientific Python; while for Back-end development apart from Django, I am very comfortable with NestJS.",
+    pt: "No que respeita a Frameworks, o meu conhecimento em Python científico é uma aprendizagem contínua; para desenvolver Back-ends, tirando Django, sinto-me confortável com NestJS.",
   },
   {
     en: "Download my CV",
@@ -107,7 +111,7 @@ const LongIntro: React.FC = () => {
             {textArr[0][language]}
           </Typography>
           {textArr.map((line, i) =>
-            i > 0 && i < 4 ? (
+            i > 0 && i < 5 ? (
               <Typography
                 key={`long-intro-${i}`}
                 paragraph
@@ -135,7 +139,7 @@ const LongIntro: React.FC = () => {
             }
             target="_blank"
           >
-            {textArr[4][language]}
+            {textArr[5][language]}
           </Button>
         </Grid>
       </Grid>
