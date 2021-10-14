@@ -79,7 +79,7 @@ const portArr: ISectionProps[] = [
               pt: "Efeitos da migração na distrubuição dos rendimentos",
             },
             image: { src: "/portfolio/migration.jpg", alt: "german flag" },
-            status: { en: "Ongoing", pt: "Em desenvolvimento" },
+            status: { en: "Completed", pt: "Completo" },
             links: [
               {
                 name: { en: "Google Collab", pt: "Google Collab" },
