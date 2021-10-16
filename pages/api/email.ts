@@ -53,7 +53,9 @@ export default async function handler(
     }
 
     if (!isHuman) {
-      res.status(400).json({ status: 400, message: "Something went wrong" });
+      res
+        .status(400)
+        .json({ status: 400, message: "You've been classified as a bot" });
       return;
     }
 
@@ -65,7 +67,9 @@ export default async function handler(
         text: formData.body, // plain text body
       });
     } catch (error) {
-      res.status(400).json({ status: 400, message: "Something went wrong" });
+      res
+        .status(400)
+        .json({ status: 400, message: "Nodemailer is not cooperating :')" });
       return;
     }
 
