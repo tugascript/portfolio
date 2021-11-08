@@ -13,24 +13,6 @@ const portArr: ISectionProps[] = [
         subTitle: { en: "Full-stack", pt: "Interface e Servidor" },
         items: [
           {
-            title: {
-              en: "Conceição Cabral Store",
-              pt: "Loja Conceição Cabral",
-            },
-            image: {
-              src: "/portfolio/cabral-app.jpg",
-              alt: "conceição cabral store",
-            },
-            status: { en: "Dropped", pt: "Alterado" },
-            stack: "ReactJs, Django and DRF",
-            links: [
-              {
-                name: { en: "All", pt: "Todo" },
-                link: "https://github.com/tugascript/cabral",
-              },
-            ],
-          },
-          {
             title: { en: "Blog", pt: "Blog" },
             image: { src: "/portfolio/blog-app.jpg", alt: "blog" },
             status: { en: "Ongoing", pt: "Em desenvolvimento" },
