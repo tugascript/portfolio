@@ -17,14 +17,14 @@
     "formik": "^2.2.9",
     "next": "12.1.6",
     "nodemailer": "^6.7.5",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
     "react-google-recaptcha": "^2.1.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/nodemailer": "^6.4.4",
-    "@types/react": "18.0.9",
+    "@types/react": "18.0.0",
     "@types/react-google-recaptcha": "^2.1.5",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
