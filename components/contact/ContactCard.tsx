@@ -16,10 +16,26 @@ import type { ISingleContactProps } from "./SingleContact";
 import SingleContact from "./SingleContact";
 
 const contactVals: ISingleContactProps[] = [
-  { icon: CallIcon, text: "(+351) 926 337 040" },
-  { icon: EmailIcon, text: "barracha.afonso@gmail.com" },
-  { icon: LinkedInIcon, text: "afonso-barracha" },
-  { icon: GitHubIcon, text: "tugascript" },
+  {
+    icon: CallIcon,
+    text: "(+351) 926 337 040",
+    link: "https://web.whatsapp.com/",
+  },
+  {
+    icon: EmailIcon,
+    text: "barracha.afonso@gmail.com",
+    link: "mailto: barracha.afonso@gmail.com",
+  },
+  {
+    icon: LinkedInIcon,
+    text: "afonso-barracha",
+    link: "https://www.linkedin.com/in/afonso-barracha/",
+  },
+  {
+    icon: GitHubIcon,
+    text: "tugascript",
+    link: "https://github.com/tugascript",
+  },
 ];
 
 enum ClassesEnum {

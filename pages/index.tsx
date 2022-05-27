@@ -2,9 +2,8 @@ import Grid from "@mui/material/Grid";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Fragment } from "react";
-import Knowledge from "../components/cv/Knowledge";
-import LongIntro from "../components/cv/LongIntro";
-import ShortIntro from "../components/cv/ShortIntro";
+import Intro from "../components/cv/Intro";
+import Languages from "../components/cv/Languages";
 
 const Home: NextPage = () => (
   <Fragment>
@@ -12,9 +11,8 @@ const Home: NextPage = () => (
       <title>TugaScript | CV</title>
     </Head>
     <Grid container direction="column">
-      <ShortIntro />
-      <LongIntro />
-      <Knowledge />
+      <Intro />
+      <Languages />
     </Grid>
   </Fragment>
 );

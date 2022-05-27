@@ -16,15 +16,30 @@ const portArr: ISectionProps[] = [
             title: { en: "Blog", pt: "Blog" },
             image: { src: "/portfolio/blog-app.jpg", alt: "blog" },
             status: { en: "Ongoing", pt: "Em desenvolvimento" },
-            stack: "NextJs, NestJs and GraphQL",
+            stack: "Rust, Actix-Web and Async-GraphQL",
+            links: [
+              {
+                name: { en: "Back-end", pt: "Servidor" },
+                link: "https://github.com/tugascript/personal-blog",
+              },
+            ],
+          },
+          {
+            title: { en: "Flutter Puzzle Hack", pt: "Flutter Puzzle Hack" },
+            image: {
+              src: "/portfolio/flutter-hack.jpg",
+              alt: "flutter-puzzle-hack",
+            },
+            status: { en: "Completed", pt: "Completo" },
+            stack: "Flutter, Dart, NestJS & Apollo",
             links: [
               {
                 name: { en: "Front-end", pt: "Interface" },
-                link: "https://github.com/tugascript/blog-react",
+                link: "https://github.com/tugascript/flutter-slider-2",
               },
               {
                 name: { en: "Back-end", pt: "Servidor" },
-                link: "https://github.com/tugascript/nestjs-blog",
+                link: "https://github.com/tugascript/flutter-slider-backend",
               },
             ],
           },
@@ -34,14 +49,18 @@ const portArr: ISectionProps[] = [
         subTitle: { en: "Front-end", pt: "Interface" },
         items: [
           {
-            title: { en: "Portfolio", pt: "Portefolio" },
-            image: { src: "/portfolio/portfolio.jpg", alt: "portfolio" },
-            status: { en: "Ongoing", pt: "Em desenvolvimento" },
+            title: { en: "Foto Editor", pt: "Editor de fotos" },
+            image: { src: "/portfolio/editor.jpg", alt: "editor" },
+            status: { en: "Completed", pt: "Completo" },
             stack: "NextJs",
             links: [
               {
                 name: { en: "Front-end", pt: "Interface" },
-                link: "https://github.com/tugascript/portfolio",
+                link: "https://github.com/tugascript/basic-image-editor",
+              },
+              {
+                name: { en: "Web-site", pt: "Site Web" },
+                link: "https://editor.tugascript.com/",
               },
             ],
           },

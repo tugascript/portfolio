@@ -9,8 +9,8 @@ import { PreferencesCtx } from "../PreferencesContext";
 const text: IText[] = [
   { en: "Hey there, my name is", pt: "Boas, eu chamo-me" },
   {
-    en: "I'm self-taught junior full-stack developer and data scientist from Portugal.",
-    pt: "Sou um programador web e analista de dados autodidata Português.",
+    en: "I'm a Python Econometrics Analyst and TypeScript & GraphQL Developer",
+    pt: "Faço analizes econometricas em Python e desenvolvimento em TypeScript e GraphQL",
   },
   { en: "Hire me!", pt: "Emprega-me!" },
   { en: "Just need a gig?", pt: "Só precisas dum servico?" },
@@ -61,34 +61,6 @@ const ShortIntro: React.FC = () => {
         <Typography align="center" gutterBottom>
           {text[1][language]}
         </Typography>
-        <Grid container spacing={1} justifyContent="center">
-          <Grid item>
-            <Button
-              variant="contained"
-              color="primary"
-              className={ClassesEnum.HIRE_BTN}
-              disableElevation
-              LinkComponent="a"
-              href="https://www.linkedin.com/in/afonso-barracha/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              {text[2][language]}
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button
-              variant="outlined"
-              color="primary"
-              LinkComponent="a"
-              href="https://www.fiverr.com/afonsobarracha"
-              rel="noreferrer"
-              target="_blank"
-            >
-              {text[3][language]}
-            </Button>
-          </Grid>
-        </Grid>
       </Grid>
     </ShortIntroGrid>
   );

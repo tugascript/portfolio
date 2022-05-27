@@ -12,24 +12,28 @@ enum ClassesEnum {
   IMAGE = "image",
 }
 
-const LogoImageDiv = styled("div")({
-  [`&.${ClassesEnum.ROOT}`]: {
-    width: "100%",
+const LogoImageDiv = styled("div")(({ theme }) => ({
+  width: "100%",
+  height: "auto",
+  marginLeft: "auto",
+  marginRight: "auto",
+  [theme.breakpoints.down("xl")]: {
+    width: "55%",
   },
-  ["& div"]: {
-    position: "unset !important",
+  [theme.breakpoints.down("lg")]: {
+    width: "65%",
   },
-  [`& .${ClassesEnum.IMAGE}`]: {
-    objectFit: "contain",
-    width: "100% !important",
-    position: "relative !important",
-    height: "unset !important",
+  [theme.breakpoints.down("md")]: {
+    width: "55%",
   },
-});
+  [theme.breakpoints.down("sm")]: {
+    width: "65%",
+  },
+}));
 
 const ResponsiveImage: FC<IProps> = ({ src, alt }) => (
-  <LogoImageDiv className={ClassesEnum.ROOT}>
-    <Image src={src} alt={alt} layout="fill" className={ClassesEnum.IMAGE} />
+  <LogoImageDiv>
+    <Image src={src} alt={alt} layout="responsive" width={500} height={270} />
   </LogoImageDiv>
 );
 

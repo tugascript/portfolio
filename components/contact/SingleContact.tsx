@@ -7,6 +7,7 @@ import React from "react";
 interface IProps {
   icon: React.ComponentType<SvgIconProps>;
   text: string;
+  link: string;
 }
 
 enum ClassesEnum {
@@ -20,6 +21,11 @@ const ContactGrid = styled(Grid)(({ theme }) => ({
     backgroundColor: theme.palette.background.default,
     borderRadius: theme.shape.borderRadius,
     margin: "0.15em 0",
+    color: theme.palette.text.primary,
+    textDecoration: "none",
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.main,
+    },
   },
   [`& .${ClassesEnum.ICON}`]: {
     fontSize: "2rem",
@@ -37,7 +43,7 @@ const ContactGrid = styled(Grid)(({ theme }) => ({
   },
 }));
 
-const SingleContact: React.FC<IProps> = ({ icon: Icon, text }) => (
+const SingleContact: React.FC<IProps> = ({ icon: Icon, text, link }) => (
   <ContactGrid
     className={ClassesEnum.ROOT}
     container
@@ -45,6 +51,9 @@ const SingleContact: React.FC<IProps> = ({ icon: Icon, text }) => (
     sm={11}
     xs={12}
     alignItems="center"
+    component="a"
+    href={link}
+    target="_blank"
   >
     <Grid item xs={2}>
       <Icon className={ClassesEnum.ICON} />
