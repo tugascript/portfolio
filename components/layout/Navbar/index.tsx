@@ -10,6 +10,7 @@ import type { IText } from "../../../interfaces/text";
 import MainIcon from "../../icons/MainIcon";
 import MainButtons from "./MainButtons";
 import SmallButtons from "./SmallButtons";
+import Link from "next/link";
 
 interface IProps {
   children: React.ReactElement;
@@ -37,6 +38,9 @@ const NavbarAppbar = styled(AppBar)(({ theme }) => ({
     marginRight: "auto",
     [theme.breakpoints.down("sm")]: {
       fontSize: "2.5rem",
+    },
+    "&:hover": {
+      cursor: "pointer",
     },
   },
   [`& .${ClassesEnum.TEXT_BTN}`]: {
@@ -95,7 +99,9 @@ const Navbar: React.FC = () => {
       <ElevationScroll>
         <NavbarAppbar className={ClassesEnum.ROOT}>
           <Toolbar>
-            <MainIcon className={ClassesEnum.ICON} />
+            <Link href="/">
+              <MainIcon className={ClassesEnum.ICON} />
+            </Link>
             {matchesXS ? <SmallButtons /> : <MainButtons />}
           </Toolbar>
         </NavbarAppbar>
