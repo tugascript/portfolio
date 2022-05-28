@@ -43,26 +43,30 @@ const ContactGrid = styled(Grid)(({ theme }) => ({
   },
 }));
 
-const SingleContact: React.FC<IProps> = ({ icon: Icon, text, link }) => (
-  <ContactGrid
-    className={ClassesEnum.ROOT}
-    container
-    item
-    sm={11}
-    xs={12}
-    alignItems="center"
-    component="a"
-    href={link}
-    target="_blank"
-  >
-    <Grid item xs={2}>
-      <Icon className={ClassesEnum.ICON} />
-    </Grid>
-    <Grid item xs={10}>
-      <Typography className={ClassesEnum.TEXT}>{text}</Typography>
-    </Grid>
-  </ContactGrid>
-);
+const SingleContact: React.FC<IProps> = ({ icon: Icon, text, link }) => {
+  const Component = ContactGrid as React.ComponentType<any>;
+
+  return (
+    <Component
+      className={ClassesEnum.ROOT}
+      container
+      item
+      sm={11}
+      xs={12}
+      component="a"
+      href={link}
+      target="_blank"
+      alignItems="center"
+    >
+      <Grid item xs={2}>
+        <Icon className={ClassesEnum.ICON} />
+      </Grid>
+      <Grid item xs={10}>
+        <Typography className={ClassesEnum.TEXT}>{text}</Typography>
+      </Grid>
+    </Component>
+  );
+};
 
 export type { IProps as ISingleContactProps };
 export default SingleContact;

@@ -1,14 +1,14 @@
 import type { AlertProps } from "@mui/material/Alert";
 import MuiAlert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
-import type { FC, SyntheticEvent } from "react";
+import type { FC } from "react";
 import { forwardRef } from "react";
 
 interface IProps {
   severity: "success" | "error";
   message: string;
   open: boolean;
-  handleClose: (e: SyntheticEvent, reason?: string) => void;
+  handleClose: any;
 }
 
 const InnerAlert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
