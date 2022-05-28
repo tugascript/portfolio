@@ -2,7 +2,6 @@ import { styled } from "@mui/material/styles";
 import type { FormikHelpers } from "formik";
 import type { FC, SyntheticEvent } from "react";
 import { useContext, useRef, useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
 import * as Yup from "yup";
 import type { IText } from "../../interfaces/text";
 import AppForm from "../forms/AppForm";
@@ -10,6 +9,8 @@ import AppFormField from "../forms/AppFormField";
 import AppSubmitButton from "../forms/AppSubmitButton";
 import Alert from "../layout/Alert";
 import { PreferencesCtx } from "../PreferencesContext";
+import Captcha from "./Captcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface IForm {
   name: string;
@@ -169,11 +170,7 @@ const ContactForm: FC = () => {
         loading={state.loading}
         multiline
       />
-      <ReCAPTCHA
-        sitekey={(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string) ?? "a"}
-        ref={reRef}
-        size="invisible"
-      />
+      <Captcha reRef={reRef} />
       <AppSubmitButton
         text={state.loading ? textArr[4][language] : textArr[3][language]}
         loading={state.loading}
