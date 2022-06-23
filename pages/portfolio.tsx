@@ -16,11 +16,11 @@ const portArr: ISectionProps[] = [
             title: { en: "Blog", pt: "Blog" },
             image: { src: "/portfolio/blog-app.jpg", alt: "blog" },
             status: { en: "Ongoing", pt: "Em desenvolvimento" },
-            stack: "Rust, Actix-Web and Async-GraphQL",
+            stack: "NestJS, Mercurius & Mikro-ORM",
             links: [
               {
                 name: { en: "Back-end", pt: "Servidor" },
-                link: "https://github.com/tugascript/personal-blog",
+                link: "https://github.com/tugascript/nestjs-blog",
               },
             ],
           },
