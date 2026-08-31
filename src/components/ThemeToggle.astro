@@ -1,0 +1,73 @@
+<li>
+    <button
+        type="button"
+        class="y2k-btn y2k-theme-toggle"
+        id="theme-toggle"
+        aria-label="Switch to dark theme"
+    >
+        <span class="y2k-theme-toggle-icon" aria-hidden="true">
+            <svg
+                class="y2k-theme-toggle-icon-sun"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+            >
+                <circle cx="8" cy="8" r="3.25"></circle>
+                <path
+                    d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M3.05 12.95l1.41-1.41M11.54 4.46l1.41-1.41"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"></path>
+            </svg>
+            <svg
+                class="y2k-theme-toggle-icon-moon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+            >
+                <path
+                    d="M11.5 2.5a6.5 6.5 0 1 0 0 11 5.5 5.5 0 0 1 0-11z"
+                ></path>
+            </svg>
+        </span>
+    </button>
+</li>
+
+<script>
+    const STORAGE_KEY = "tugascript-theme";
+
+    function getTheme() {
+        return document.documentElement.getAttribute("data-theme") === "dark"
+            ? "dark"
+            : "light";
+    }
+
+    function updateToggleButton() {
+        const button = document.getElementById("theme-toggle");
+        if (!button) return;
+
+        const isDark = getTheme() === "dark";
+        button.setAttribute(
+            "aria-label",
+            isDark ? "Switch to light theme" : "Switch to dark theme",
+        );
+    }
+
+    function setTheme(theme: "light" | "dark") {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem(STORAGE_KEY, theme);
+        updateToggleButton();
+    }
+
+    function initThemeToggle() {
+        updateToggleButton();
+
+        const button = document.getElementById("theme-toggle");
+        button?.addEventListener("click", () => {
+            setTheme(getTheme() === "dark" ? "light" : "dark");
+        });
+    }
+
+    initThemeToggle();
+    document.addEventListener("astro:page-load", initThemeToggle);
+</script>

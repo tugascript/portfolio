@@ -1,0 +1,41 @@
+---
+type FooterLink = {
+    readonly title: string;
+    readonly href: string;
+};
+
+const footerLinks: FooterLink[] = [
+    { title: "GitHub", href: "https://github.com/tugascript" },
+    { title: "LinkedIn", href: "https://www.linkedin.com/in/afonso-barracha/" },
+    { title: "XING", href: "https://www.xing.com/profile/Afonso_Barracha" },
+    { title: "DEV", href: "https://dev.to/tugascript" },
+];
+---
+
+<footer class="y2k-footer">
+    <p>
+        You are visitor #
+        <span class="y2k-counter" aria-hidden="true">5361301</span>
+    </p>
+
+    <nav class="y2k-footer-links mt-2" aria-label="Social links">
+        <ul>
+            {
+                footerLinks.map((link) => (
+                    <li>
+                        <a href={link.href} target="_blank" rel="noopener noreferrer">{link.title}</a>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
+
+    <p class="mt-2">
+        Best viewed in Netscape Navigator 4.0 at 800x600
+        <span class="y2k-blink" aria-hidden="true"> ★ NEW! ★</span>
+    </p>
+
+    <p class="mt-2">
+        Made with Notepad · Last updated: <a href="https://en.wikipedia.org/wiki/Helen_Clark" target="_blank" rel="noopener noreferrer">Helen Clark</a> was still PM
+    </p>
+</footer>

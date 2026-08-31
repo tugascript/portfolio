@@ -1,0 +1,69 @@
+---
+export type Skill = {
+    readonly memeName: string;
+    readonly realName: string;
+    readonly topicTitle: string;
+    readonly topics: string[];
+    readonly learningTitle: string;
+    readonly learning: string[];
+};
+
+export type SkillsSection = {
+    readonly category: string;
+    readonly skills: Skill[];
+};
+
+interface Props extends SkillsSection {}
+
+const { category, skills } = Astro.props;
+---
+
+<div class="y2k-skill-section">
+    <h3 class="y2k-skill-category">{category}</h3>
+    <ul class="y2k-skill-list">
+        {
+            skills.map((skill) => (
+                <li class="y2k-skill-item">
+                    <article class="y2k-skill-card">
+                        <header class="y2k-skill-header">
+                            <p class="y2k-skill-title">
+                                <span class="y2k-skill-meme">{skill.memeName}</span>
+                                <span class="y2k-skill-real-name">({skill.realName})</span>
+                            </p>
+                        </header>
+
+                        <div class="y2k-skill-group">
+                            <p class="y2k-skill-group-label">{skill.topicTitle}</p>
+                            {skill.topics.length > 0 && (
+                                <ul
+                                    class="y2k-skill-tags"
+                                    aria-label={`${skill.memeName} topics`}
+                                >
+                                    {skill.topics.map((topic) => (
+                                        <li class="y2k-skill-tag y2k-skill-tag--known">{topic}</li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+
+                        <div class="y2k-skill-group">
+                            <p class="y2k-skill-group-label y2k-skill-group-label--learning">
+                                {skill.learningTitle}
+                            </p>
+                            {skill.learning.length > 0 && (
+                                <ul
+                                    class="y2k-skill-tags"
+                                    aria-label={`${skill.memeName} learning`}
+                                >
+                                    {skill.learning.map((item) => (
+                                        <li class="y2k-skill-tag y2k-skill-tag--learning">{item}</li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                    </article>
+                </li>
+            ))
+        }
+    </ul>
+</div>

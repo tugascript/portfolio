@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import profilePhoto from "../../assets/afonso_intro.jpg";
+
+
+const name: string = "Afonso Barracha"; 
+
+const summary: string[][] = [
+        [
+            "Originally from the EU's most eastern-thinking southern state, studying to become a Quantitive Developer, I somehow ended up in the Pacific as your best choice for a Software Engineer, personally endorsed by the PM himself!",
+            "At least in my dreams...",
+        ],
+        [
+            "After enough segfaults and pointers that somehow always ended up ponting to null, I moved from C and the interpreted snake language (Python) from my University days to fancier languages:",
+            "JavaScript that needs to be transpiled because somebody forgot what a type system is (TypeScript), C++ for Dummies (Rust), and C's garbage-collected younger cousin (Go), all in a infinity quest to become employable.",
+        ],
+        [
+            "Currently working at MATTR, a lovely Spark NZ subsidiary, I've touched just about every part of a complex Digital Identity platform, all because I once forgot my physical driver's licence and still wanted a drink.",
+            "For the future, I'm looking to go back to my roots, combining Python with Rust and C++ to explore ML and AI closer to the metal."
+        ],
+];
+---
+
+<section id="my-summary">
+    <div class="y2k-title-bar">Who am I?</div>
+    <div class="y2k-panel">
+        <div class="flex flex-col items-center gap-4 sm:flex-row sm:items-start">
+            <figure class="w-full max-w-[12rem] shrink-0">
+                <div class="y2k-photo-frame">
+                    <Image
+                        src={profilePhoto}
+                        alt={`Portrait of ${name}`}
+                        class="aspect-[3/4] w-full object-cover object-top"
+                        widths={[288, 576]}
+                        sizes="(min-width: 640px) 12rem, 100vw"
+                    />
+                </div>
+                <figcaption class="mt-1 text-center text-xs font-bold">
+                    Pondering my life choices...
+                </figcaption>
+            </figure>
+
+            <div class="min-w-0 flex-1">
+                {
+                    summary.map((paragraph) => (
+                        <p class="mb-3 last:mb-0">{paragraph.join(" ")}</p>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>

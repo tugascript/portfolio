@@ -1,0 +1,42 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+import introIcon from "../assets/intro.svg?raw";
+
+const navItems = [
+    { label: "Intro", href: "/" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact Me", href: "/contact" },
+];
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+    href === "/" ? path === "/" : path.startsWith(href);
+---
+
+<header>
+    <nav class="y2k-navbar" aria-label="Main navigation">
+        <a href="/" class="y2k-brand-link">
+            <span class="y2k-brand-icon" aria-hidden="true" set:html={introIcon} />
+        </a>
+
+        <ul class="y2k-nav-list">
+            {
+                navItems.map((item) => (
+                    <li>
+                        <a
+                            href={item.href}
+                            aria-current={
+                                isActive(item.href) ? "page" : undefined
+                            }
+                            class="y2k-nav-link"
+                        >
+                            {item.label}
+                        </a>
+                    </li>
+                ))
+            }
+            <ThemeToggle />
+        </ul>
+    </nav>
+</header>
