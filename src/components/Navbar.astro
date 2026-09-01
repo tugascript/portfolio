@@ -1,6 +1,8 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
 import introIcon from "../assets/intro.svg?raw";
+import contactIcon from "../assets/contact.svg?raw";
+import portfolioIcon from "../assets/portfolio.svg?raw";
 
 type NavItem = {
   readonly label: string;
@@ -14,14 +16,25 @@ const navItems: NavItem[] = [
 ];
 
 const path = Astro.url.pathname;
-const isActive = (href: string) =>
+const isActive = (href: string): boolean =>
   href === "/" ? path === "/" : path.startsWith(href);
+
+const getIcon = (pathname: string): string => {
+  if (pathname === "/") return introIcon;
+  if (pathname.startsWith("/contact")) return contactIcon;
+  if (pathname.startsWith("/portfolio")) return portfolioIcon;
+  return introIcon;
+};
 ---
 
 <header>
   <nav class="y2k-navbar" aria-label="Main navigation">
     <a href="/" class="y2k-brand-link">
-      <span class="y2k-brand-icon" aria-hidden="true" set:html={introIcon} />
+      <span
+        class="y2k-brand-icon"
+        aria-hidden="true"
+        set:html={getIcon(path)}
+      />
     </a>
 
     <div class="y2k-nav-end">

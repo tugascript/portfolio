@@ -10,7 +10,6 @@ const { project, featured = false } = Astro.props;
 const tags = project.tags ?? [];
 const languages = project.languages ?? [];
 const frameworks = project.frameworks ?? [];
-const databases = project.databases ?? [];
 const libraries = project.libraries ?? [];
 const tools = project.tools ?? [];
 
@@ -22,16 +21,12 @@ const formatDate = ({ month, year }: OpenSourceProject["startDate"]) =>
     : String(year);
 
 const timeline = project.endDate
-  ? `${formatDate(project.startDate)} – ${formatDate(project.endDate)}`
-  : `${formatDate(project.startDate)} – now`;
+  ? `${formatDate(project.startDate)} - ${formatDate(project.endDate)}`
+  : `${formatDate(project.startDate)} - now`;
 
-const stack = [
-  ...languages,
-  ...frameworks,
-  ...databases,
-  ...libraries,
-  ...tools,
-].filter((item, index, values) => values.indexOf(item) === index);
+const stack = [...languages, ...frameworks, ...libraries, ...tools].filter(
+  (item, index, values) => values.indexOf(item) === index,
+);
 
 const links = [
   { label: "Source code", href: project.repositoryUrl },
@@ -80,7 +75,7 @@ const links = [
     }
 
     <details class="y2k-project-details">
-      <summary>View tech specs</summary>
+      <summary>stack-tech-specs.txt</summary>
       <dl>
         <div>
           <dt>Primary</dt>
@@ -89,6 +84,10 @@ const links = [
         <div>
           <dt>Stack</dt>
           <dd>{stack.join(" · ") || "No dependencies listed"}</dd>
+        </div>
+        <div>
+          <dt>Storage</dt>
+          <dd>{project.databases.join(" · ") || "No databases listed"}</dd>
         </div>
       </dl>
     </details>

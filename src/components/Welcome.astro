@@ -3,7 +3,13 @@ import AboutMe from "./cv/AboutMe.astro";
 import MySummary from "./cv/MySummary.astro";
 import Devider from "./common/Devider.astro";
 import AllSkills from "./cv/AllSkills.astro";
-import HighlightOpensource from "./cv/HighlightOpensource.astro";
+import ProjectCollection from "./portfolio/ProjectCollection.astro";
+import opensourceData from "../common/data/opensource.json";
+import type { OpenSourceProject } from "../common/types";
+
+const featuredProjects = (opensourceData as OpenSourceProject[]).filter(
+  (project) => project.highlighted,
+);
 ---
 
 <AboutMe />
@@ -12,4 +18,10 @@ import HighlightOpensource from "./cv/HighlightOpensource.astro";
 <Devider />
 <AllSkills />
 <Devider />
-<HighlightOpensource />
+<ProjectCollection
+  id="featured-projects"
+  title="Free work I've done"
+  eyebrow=""
+  projects={featuredProjects}
+  featured
+/>
