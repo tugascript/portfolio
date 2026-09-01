@@ -1,0 +1,26 @@
+---
+import Opensource from "./Opensource.astro";
+import WindowsButtonDecoration from "../common/WindowsButtonDecoration.astro";
+import type { OpenSourceProject } from "../../common/types";
+import opensourceData from "../../common/data/opensource.json";
+---
+
+<section id="opensource" aria-labelledby="opensource-title">
+  <div class="y2k-title-bar y2k-opensource-title">
+    <h2 id="opensource-title">Free work I've done</h2>
+    <WindowsButtonDecoration />
+  </div>
+  <div class="y2k-panel">
+    <ul class="y2k-skill-list">
+      {
+        opensourceData
+          .filter((project) => project.highlighted)
+          .map((project) => (
+            <li class="y2k-skill-item">
+              <Opensource {...(project as OpenSourceProject)} />
+            </li>
+          ))
+      }
+    </ul>
+  </div>
+</section>

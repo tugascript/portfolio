@@ -1,8 +1,8 @@
 ---
 interface Props {
-    title: string;
-    underConstruction?: boolean;
-    guestbook?: boolean;
+  title: string;
+  underConstruction?: boolean;
+  guestbook?: boolean;
 }
 
 const { title, underConstruction = false, guestbook = false } = Astro.props;
@@ -10,59 +10,88 @@ const { title, underConstruction = false, guestbook = false } = Astro.props;
 
 <div class="y2k-title-bar">{title}</div>
 <div class="y2k-panel">
-    {
-        underConstruction && (
-            <p class="mb-4 text-center">
-                <span class="y2k-construction">
-                    <span class="y2k-blink" aria-hidden="true">
-                        ⚠
-                    </span>{" "}
-                    UNDER CONSTRUCTION{" "}
-                    <span class="y2k-blink" aria-hidden="true">
-                        ⚠
-                    </span>
-                </span>
-            </p>
-        )
-    }
+  {
+    underConstruction && (
+      <p class="mb-4 text-center">
+        <span class="y2k-construction">
+          <span class="y2k-blink" aria-hidden="true">
+            ⚠
+          </span>{" "}
+          UNDER CONSTRUCTION{" "}
+          <span class="y2k-blink" aria-hidden="true">
+            ⚠
+          </span>
+        </span>
+      </p>
+    )
+  }
 
-    {
-        guestbook ? (
-            <div>
-                <p class="mb-4 font-bold text-center">
-                    ★ Sign my guestbook! ★
-                </p>
-                <form aria-label="Guestbook form (decorative)">
-                    <label class="y2k-guestbook-label" for="guestbook-name">
-                        Your Name:
-                    </label>
-                    <input
-                        id="guestbook-name"
-                        class="y2k-guestbook-field mb-3"
-                        type="text"
-                        disabled
-                        placeholder="Anonymous Coward"
-                    />
-                    <label class="y2k-guestbook-label" for="guestbook-message">
-                        Your Message:
-                    </label>
-                    <textarea
-                        id="guestbook-message"
-                        class="y2k-guestbook-field mb-3"
-                        rows="4"
-                        disabled
-                        placeholder="Cool site bro!!!"
-                    />
-                    <button type="button" class="y2k-btn" disabled>
-                        Sign Guestbook
-                    </button>
-                </form>
-                <p class="mt-4 text-xs">
-                    (Guestbook coming soon — no data is collected yet)
-                </p>
-            </div>
-        ) : (
-            <slot />
-        )
-    }
+  {
+    guestbook ? (
+      <div>
+        <p class="mb-4 font-bold text-center">★ Sign my guestbook! ★</p>
+        <form aria-label="Guestbook form (decorative)">
+          <label class="y2k-guestbook-label" for="guestbook-name">
+            Your Name:
+          </label>
+          <input
+            id="guestbook-name"
+            class="y2k-guestbook-field mb-3"
+            type="text"
+            disabled
+            placeholder="Cool Recruiter From Cool Company"
+          />
+          <label class="y2k-guestbook-label" for="guestbook-email">
+            E-Mail Address:
+          </label>
+          <input
+            id="guestbook-email"
+            class="y2k-guestbook-field mb-3"
+            type="email"
+            disabled
+            placeholder="nigerian.prince@totally-not-a-scam.co.nz"
+          />
+          <label class="y2k-guestbook-label" for="guestbook-message">
+            Your Message:
+          </label>
+          <textarea
+            id="guestbook-message"
+            class="y2k-guestbook-field mb-3"
+            rows="6"
+            disabled
+            placeholder="Cool site bruv!!! You're hired!"
+          />
+          <button type="button" class="y2k-btn" disabled>
+            Sign Guestbook
+          </button>
+        </form>
+        <p>
+          Sh*t, I used the wrong extension, this is a windows system not Mac OS
+          X Public Beta! Like Auckland infrastructure it's always...
+        </p>
+        <br />
+        <p class="mb-4 text-center">
+          <span class="y2k-construction">
+            <span class="y2k-blink" aria-hidden="true">
+              ⚠
+            </span>{" "}
+            UNDER CONSTRUCTION{" "}
+            <span class="y2k-blink" aria-hidden="true">
+              ⚠
+            </span>
+          </span>
+        </p>
+        <p>
+          Maybe instead of waiting why don't you just contact me on the
+          following channels?
+        </p>
+        <ul>
+          <li>LinkedIn</li>
+          <li>Download my SEEK profile</li>
+        </ul>
+      </div>
+    ) : (
+      <slot />
+    )
+  }
 </div>

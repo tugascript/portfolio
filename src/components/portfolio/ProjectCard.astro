@@ -1,0 +1,114 @@
+---
+import type { OpenSourceProject } from "../../common/types";
+
+interface Props {
+  project: OpenSourceProject;
+  featured?: boolean;
+}
+
+const { project, featured = false } = Astro.props;
+const tags = project.tags ?? [];
+const languages = project.languages ?? [];
+const frameworks = project.frameworks ?? [];
+const databases = project.databases ?? [];
+const libraries = project.libraries ?? [];
+const tools = project.tools ?? [];
+
+const formatDate = ({ month, year }: OpenSourceProject["startDate"]) =>
+  month
+    ? new Intl.DateTimeFormat("en", { month: "short", year: "numeric" }).format(
+        new Date(year, month - 1),
+      )
+    : String(year);
+
+const timeline = project.endDate
+  ? `${formatDate(project.startDate)} – ${formatDate(project.endDate)}`
+  : `${formatDate(project.startDate)} – now`;
+
+const stack = [
+  ...languages,
+  ...frameworks,
+  ...databases,
+  ...libraries,
+  ...tools,
+].filter((item, index, values) => values.indexOf(item) === index);
+
+const links = [
+  { label: "Source code", href: project.repositoryUrl },
+  { label: "Package", href: project.packageUrl },
+  { label: "Docs", href: project.documentationUrl },
+  { label: "Website", href: project.websiteUrl },
+  { label: "DEV series", href: project.devToSeriesUrl },
+].filter((link): link is { label: string; href: string } => Boolean(link.href));
+---
+
+<article
+  class:list={["y2k-project-card", { "y2k-project-card--featured": featured }]}
+>
+  <header class="y2k-project-card__titlebar">
+    <span aria-hidden="true">{featured ? "★" : "▣"}</span>
+    <h3>{project.name}</h3>
+    <span class="y2k-project-card__controls" aria-hidden="true"
+      >— <b>□</b> x</span
+    >
+  </header>
+
+  <div class="y2k-project-card__body">
+    <div class="y2k-project-card__meta">
+      <span
+        class:list={[
+          "y2k-project-status",
+          `is-${project.status.toLowerCase()}`,
+        ]}
+      >
+        {project.status}
+      </span>
+      <span>{project.role}</span>
+      <span>{timeline}</span>
+    </div>
+
+    <p class="y2k-project-card__summary">{project.summary}</p>
+
+    {
+      tags.length > 0 && (
+        <ul class="y2k-project-tags" aria-label={`${project.name} topics`}>
+          {tags.map((tag) => (
+            <li>#{tag}</li>
+          ))}
+        </ul>
+      )
+    }
+
+    <details class="y2k-project-details">
+      <summary>View tech specs</summary>
+      <dl>
+        <div>
+          <dt>Primary</dt>
+          <dd>{project.primaryLanguage}</dd>
+        </div>
+        <div>
+          <dt>Stack</dt>
+          <dd>{stack.join(" · ") || "No dependencies listed"}</dd>
+        </div>
+      </dl>
+    </details>
+
+    {
+      links.length > 0 && (
+        <nav class="y2k-project-links" aria-label={`${project.name} links`}>
+          {links.map((link, index) => (
+            <a
+              class="y2k-btn"
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {index === 0 ? "> " : ""}
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      )
+    }
+  </div>
+</article>

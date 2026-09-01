@@ -1,0 +1,142 @@
+[
+  {
+    "name": "My Fitness Tale",
+    "summary": "Offline version of BuffQuest, simple workout tracker without gamification",
+    "startDate": {
+      "year": 2025,
+      "month": 12
+    },
+    "highlighted": false,
+    "status": "Ongoing",
+    "role": "Author",
+    "primaryLanguage": "Dart",
+    "languages": ["Dart", "SQL", "Go"],
+    "frameworks": ["Flutter", "gRPC"],
+    "databases": ["SQLite", "PostgreSQL"],
+    "libraries": ["Bloc", "Sqlflite", "go_router"],
+    "tools": [],
+    "repositoryUrl": "https://github.com/tugascript/offline-myfitnesstale",
+    "internalSeriesBlogPath": "myfitnesstale",
+    "tags": ["Fitness", "Workout", "Tracker"]
+  },
+  {
+    "name": "DevLogs",
+    "summary": "Authentication and User management self-hosted service",
+    "highlighted": true,
+    "startDate": {
+      "year": 2025,
+      "month": 2
+    },
+    "status": "Ongoing",
+    "role": "Author",
+    "primaryLanguage": "Go",
+    "languages": ["Go", "SQL"],
+    "frameworks": ["Fiber"],
+    "databases": ["PostgreSQL", "Redis", "Vault"],
+    "libraries": ["pgx", "openbao", "jwt", "crypto", "oauth2"],
+    "tools": ["Podman", "sqlc"],
+    "repositoryUrl": "https://github.com/tugascript/devlogs",
+    "devToSeriesUrl": "https://dev.to/tugascript/go-for-node-developers-creating-an-idp-from-scratch-set-up-29nh",
+    "tags": ["OAuth 2.0", "IDP", "MCP"]
+  },
+  {
+    "name": "Rust Keyword Extraction",
+    "summary": "Collection of unsupervised keyword extraction algorithms",
+    "highlighted": true,
+    "startDate": {
+      "year": 2023,
+      "month": 4
+    },
+    "endDate": {
+      "year": 2024,
+      "month": 10
+    },
+    "status": "Maintenance",
+    "role": "Author",
+    "primaryLanguage": "Rust",
+    "languages": ["Rust"],
+    "frameworks": [],
+    "databases": [],
+    "libraries": [],
+    "tools": [],
+    "repositoryUrl": "https://github.com/tugascript/keyword-extraction-rs",
+    "packageUrl": "https://crates.io/crates/keyword_extraction",
+    "documentationUrl": "https://docs.rs/keyword_extraction/1.5.0/keyword_extraction",
+    "internalSeriesBlogPath": "rust-keyword-extraction",
+    "devToSeriesUrl": "https://dev.to/tugascript/series/22447",
+    "tags": ["NLP", "Keyword Extraction", "Text Extraction"]
+  },
+  {
+    "name": "NestJS Authentication with OAuth 2.0",
+    "summary": "Tutorial series on non-standard authentication and user management service",
+    "highlighted": false,
+    "startDate": {
+      "year": 2023,
+      "month": 1
+    },
+    "endDate": {
+      "year": 2024,
+      "month": 9
+    },
+    "status": "Archived",
+    "role": "Author",
+    "primaryLanguage": "TypeScript",
+    "languages": ["TypeScript", "SQL"],
+    "frameworks": ["NestJS", "Express", "Fastify", "Apollo Server"],
+    "databases": ["PostgreSQL", "Redis"],
+    "libraries": ["jwt"],
+    "tools": ["Node.js"],
+    "repositoryUrl": "https://github.com/tugascript/nestjs-authentication-with-oauth2.0",
+    "internalSeriesBlogPath": "nestjs-authentication-with-oauth2.0",
+    "devToSeriesUrl": "https://dev.to/tugascript/series/21297",
+    "tags": ["Authentication", "OAuth 2.0"]
+  },
+  {
+    "name": "NestJS GraphQL Chat",
+    "summary": "Hackathon project: Ephemeral chat service built with NestJS and GraphQL",
+    "highlighted": false,
+    "startDate": {
+      "year": 2022,
+      "month": 8
+    },
+    "endDate": {
+      "year": 2022,
+      "month": 8
+    },
+    "status": "Archived",
+    "role": "Author",
+    "primaryLanguage": "TypeScript",
+    "languages": ["TypeScript"],
+    "frameworks": ["NestJS", "Express", "Apollo Server"],
+    "libraries": ["React"],
+    "databases": ["Redis", "PostgreSQL"],
+    "tools": ["Node.js", "GraphQL"],
+    "repositoryUrl": "https://github.com/tugascript/nestjs-graphql-chat",
+    "documentationUrl": "https://dev.to/tugascript/ephemeral-chats-2ici",
+    "tags": ["Chat", "GraphQL"]
+  },
+  {
+    "name": "Flutter Slider",
+    "summary": "Hackathon project: Flutter slider puzzle game",
+    "highlighted": false,
+    "startDate": {
+      "year": 2022,
+      "month": 2
+    },
+    "endDate": {
+      "year": 2022,
+      "month": 3
+    },
+    "status": "Archived",
+    "role": "Author",
+    "primaryLanguage": "Dart",
+    "languages": ["Dart", "TypeScript"],
+    "frameworks": ["Flutter", "NestJS", "Express", "Apollo Server"],
+    "databases": ["PostgreSQL"],
+    "libraries": [],
+    "tools": ["Flutter"],
+    "repositoryUrl": "https://github.com/tugascript/flutter-slider",
+    "documentationUrl": "https://devpost.com/software/flutter-slider-ut4cr1",
+    "tags": ["Puzzle", "Game"]
+  }
+]

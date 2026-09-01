@@ -2,148 +2,151 @@
 import ThemeToggle from "./ThemeToggle.astro";
 import introIcon from "../assets/intro.svg?raw";
 
-const navItems = [
-    { label: "Intro", href: "/" },
-    { label: "Portfolio", href: "/portfolio" },
-    { label: "Contact Me", href: "/contact" },
+type NavItem = {
+  readonly label: string;
+  readonly href: string;
+};
+
+const navItems: NavItem[] = [
+  { label: "Intro", href: "/" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Contact Me", href: "/contact" },
 ];
 
 const path = Astro.url.pathname;
 const isActive = (href: string) =>
-    href === "/" ? path === "/" : path.startsWith(href);
+  href === "/" ? path === "/" : path.startsWith(href);
 ---
 
 <header>
-    <nav class="y2k-navbar" aria-label="Main navigation">
-        <a href="/" class="y2k-brand-link">
-            <span class="y2k-brand-icon" aria-hidden="true" set:html={introIcon} />
-        </a>
+  <nav class="y2k-navbar" aria-label="Main navigation">
+    <a href="/" class="y2k-brand-link">
+      <span class="y2k-brand-icon" aria-hidden="true" set:html={introIcon} />
+    </a>
 
-        <div class="y2k-nav-end">
-            <div id="main-nav-menu" class="y2k-nav-menu-panel">
-                <ul class="y2k-nav-list">
-                    {
-                        navItems.map((item) => (
-                            <li>
-                                <a
-                                    href={item.href}
-                                    aria-current={
-                                        isActive(item.href) ? "page" : undefined
-                                    }
-                                    class="y2k-nav-link"
-                                >
-                                    {item.label}
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div>
+    <div class="y2k-nav-end">
+      <div id="main-nav-menu" class="y2k-nav-menu-panel">
+        <ul class="y2k-nav-list">
+          {
+            navItems.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                  class="y2k-nav-link"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
 
-            <ul class="y2k-nav-actions">
-                <li class="y2k-nav-menu-toggle-item">
-                    <button
-                        type="button"
-                        class="y2k-btn y2k-nav-menu-toggle"
-                        id="nav-menu-toggle"
-                        aria-expanded="false"
-                        aria-controls="main-nav-menu"
-                        aria-label="Open menu"
-                    >
-                        <span class="y2k-nav-menu-icon" aria-hidden="true">
-                            <span class="y2k-nav-menu-icon-open">V</span>
-                            <span class="y2k-nav-menu-icon-close">X</span>
-                        </span>
-                    </button>
-                </li>
-                <ThemeToggle />
-            </ul>
-        </div>
-    </nav>
+      <ul class="y2k-nav-actions">
+        <li class="y2k-nav-menu-toggle-item">
+          <button
+            type="button"
+            class="y2k-btn y2k-nav-menu-toggle"
+            id="nav-menu-toggle"
+            aria-expanded="false"
+            aria-controls="main-nav-menu"
+            aria-label="Open menu"
+          >
+            <span class="y2k-nav-menu-icon" aria-hidden="true">
+              <span class="y2k-nav-menu-icon-open">V</span>
+              <span class="y2k-nav-menu-icon-close">X</span>
+            </span>
+          </button>
+        </li>
+        <ThemeToggle />
+      </ul>
+    </div>
+  </nav>
 </header>
 
 <script is:inline>
-    (function () {
-        if (sessionStorage.getItem("nav-menu-open") !== "true") return;
+  (function () {
+    if (sessionStorage.getItem("nav-menu-open") !== "true") return;
 
-        var panel = document.getElementById("main-nav-menu");
-        var toggle = document.getElementById("nav-menu-toggle");
-        if (panel) panel.classList.add("is-open");
-        if (toggle) {
-            toggle.setAttribute("aria-expanded", "true");
-            toggle.setAttribute("aria-label", "Close menu");
-        }
-    })();
+    var panel = document.getElementById("main-nav-menu");
+    var toggle = document.getElementById("nav-menu-toggle");
+    if (panel) panel.classList.add("is-open");
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", "Close menu");
+    }
+  })();
 </script>
 
 <script>
-    const STORAGE_KEY = "nav-menu-open";
+  const STORAGE_KEY = "nav-menu-open";
 
-    let navMenuController: AbortController | null = null;
+  let navMenuController: AbortController | null = null;
 
-    function setNavMenuOpen(
-        toggle: HTMLButtonElement,
-        panel: HTMLElement,
-        open: boolean,
-        persist = true,
-    ) {
-        panel.classList.toggle("is-open", open);
-        toggle.setAttribute("aria-expanded", String(open));
-        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-        if (persist) {
-            sessionStorage.setItem(STORAGE_KEY, String(open));
+  function setNavMenuOpen(
+    toggle: HTMLButtonElement,
+    panel: HTMLElement,
+    open: boolean,
+    persist = true,
+  ) {
+    panel.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    if (persist) {
+      sessionStorage.setItem(STORAGE_KEY, String(open));
+    }
+  }
+
+  function initNavMenu() {
+    navMenuController?.abort();
+    navMenuController = new AbortController();
+    const { signal } = navMenuController;
+
+    const toggle = document.getElementById(
+      "nav-menu-toggle",
+    ) as HTMLButtonElement | null;
+    const panel = document.getElementById("main-nav-menu");
+    const nav = document.querySelector(".y2k-navbar");
+    if (!toggle || !panel || !nav) return;
+
+    const wasOpen = sessionStorage.getItem(STORAGE_KEY) === "true";
+    setNavMenuOpen(toggle, panel, wasOpen, false);
+
+    toggle.addEventListener(
+      "click",
+      (event) => {
+        event.stopPropagation();
+        const isOpen = toggle.getAttribute("aria-expanded") === "true";
+        setNavMenuOpen(toggle, panel, !isOpen);
+      },
+      { signal },
+    );
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        if (event.key === "Escape") {
+          setNavMenuOpen(toggle, panel, false);
         }
-    }
+      },
+      { signal },
+    );
 
-    function initNavMenu() {
-        navMenuController?.abort();
-        navMenuController = new AbortController();
-        const { signal } = navMenuController;
+    document.addEventListener(
+      "click",
+      (event) => {
+        if (
+          panel.classList.contains("is-open") &&
+          !nav.contains(event.target as Node)
+        ) {
+          setNavMenuOpen(toggle, panel, false);
+        }
+      },
+      { signal },
+    );
+  }
 
-        const toggle = document.getElementById(
-            "nav-menu-toggle",
-        ) as HTMLButtonElement | null;
-        const panel = document.getElementById("main-nav-menu");
-        const nav = document.querySelector(".y2k-navbar");
-        if (!toggle || !panel || !nav) return;
-
-        const wasOpen = sessionStorage.getItem(STORAGE_KEY) === "true";
-        setNavMenuOpen(toggle, panel, wasOpen, false);
-
-        toggle.addEventListener(
-            "click",
-            (event) => {
-                event.stopPropagation();
-                const isOpen = toggle.getAttribute("aria-expanded") === "true";
-                setNavMenuOpen(toggle, panel, !isOpen);
-            },
-            { signal },
-        );
-
-        document.addEventListener(
-            "keydown",
-            (event) => {
-                if (event.key === "Escape") {
-                    setNavMenuOpen(toggle, panel, false);
-                }
-            },
-            { signal },
-        );
-
-        document.addEventListener(
-            "click",
-            (event) => {
-                if (
-                    panel.classList.contains("is-open") &&
-                    !nav.contains(event.target as Node)
-                ) {
-                    setNavMenuOpen(toggle, panel, false);
-                }
-            },
-            { signal },
-        );
-    }
-
-    initNavMenu();
-    document.addEventListener("astro:page-load", initNavMenu);
+  initNavMenu();
+  document.addEventListener("astro:page-load", initNavMenu);
 </script>

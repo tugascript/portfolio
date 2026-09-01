@@ -21,6 +21,8 @@
   --color-y2k-neon: #ff00ff;
   --color-y2k-construction: #ffff00;
   --color-y2k-construction-text: #000000;
+  --color-y2k-ongoing: #008000;
+  --color-y2k-ongoing-text: #ffffff;
   --color-y2k-nav-hover: #ece9d8;
   --color-y2k-tile: #9999cc;
   --color-y2k-marquee-bg: #000000;
@@ -46,6 +48,8 @@
   --color-y2k-neon: #ff66ff;
   --color-y2k-construction: #cccc00;
   --color-y2k-construction-text: #111122;
+  --color-y2k-ongoing: #39d353;
+  --color-y2k-ongoing-text: #071a0b;
   --color-y2k-nav-hover: #5a5a7a;
   --color-y2k-tile: #3a3a5a;
   --color-y2k-marquee-bg: #0a0a1a;
@@ -112,7 +116,8 @@
     padding: 0.75rem;
   }
 
-  .y2k-panel + .y2k-panel {
+  .y2k-panel + .y2k-panel,
+  .y2k-panel + .y2k-title-bar {
     margin-top: 0.75rem;
   }
 
@@ -460,6 +465,26 @@
     font-size: 0.8125rem;
   }
 
+  .y2k-contact-joke {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .y2k-contact-joke__intro {
+    margin: 0;
+    max-width: 32rem;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .y2k-contact-joke__cta {
+    margin: 0;
+    font-weight: 700;
+  }
+
   .y2k-skill-section + .y2k-skill-section {
     margin-top: 1rem;
   }
@@ -575,6 +600,228 @@
     background-color: var(--color-y2k-construction);
     border-color: var(--color-y2k-shadow) var(--color-y2k-highlight)
       var(--color-y2k-highlight) var(--color-y2k-shadow);
+  }
+
+  .y2k-opensource-title {
+    margin: 0;
+  }
+
+  .y2k-opensource-summary {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .y2k-portfolio-hero + .y2k-project-collection,
+  .y2k-project-collection + .y2k-project-collection {
+    margin-top: 0.75rem;
+  }
+
+  .y2k-title-bar {
+    justify-content:  space-between;
+  }
+
+  .y2k-portfolio-hero h1,
+  .y2k-project-collection h2,
+  .y2k-project-card h3,
+  .y2k-title-bar h1,
+  .y2k-title-bar h2 {
+    margin: 0;
+    font: inherit;
+  }
+
+  .y2k-portfolio-kicker {
+    margin: 0 0 0.5rem;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 700;
+    color: var(--color-y2k-title-start);
+  }
+
+  .y2k-portfolio-intro {
+    max-width: 38rem;
+    margin: 0;
+  }
+
+  .y2k-portfolio-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin: 1rem 0 0;
+  }
+
+  .y2k-portfolio-stats div {
+    padding: 0.5rem;
+    text-align: center;
+    background: var(--color-y2k-panel);
+    border: 2px solid;
+    border-color: var(--color-y2k-highlight) var(--color-y2k-shadow)
+      var(--color-y2k-shadow) var(--color-y2k-highlight);
+  }
+
+  .y2k-portfolio-stats dt {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-y2k-muted);
+  }
+
+  .y2k-portfolio-stats dd {
+    margin: 0.125rem 0 0;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .y2k-project-collection__eyebrow {
+    margin: 0 0 0.75rem;
+    color: var(--color-y2k-muted);
+    font-size: 0.75rem;
+  }
+
+  .y2k-project-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .y2k-project-card {
+    min-width: 0;
+    background: var(--color-y2k-panel);
+    border: 2px solid;
+    border-color: var(--color-y2k-highlight) var(--color-y2k-shadow)
+      var(--color-y2k-shadow) var(--color-y2k-highlight);
+  }
+
+  .y2k-project-card--featured {
+    box-shadow: 3px 3px 0 var(--color-y2k-shadow);
+  }
+
+  .y2k-project-card__titlebar {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.375rem;
+    color: var(--color-y2k-title-text);
+    background: linear-gradient(90deg, var(--color-y2k-title-start), var(--color-y2k-title-end));
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .y2k-project-card__titlebar h3 {
+    flex: 1;
+    overflow-wrap: anywhere;
+  }
+
+  .y2k-project-card__controls {
+    flex: none;
+    letter-spacing: 0.1em;
+  }
+
+  .y2k-project-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.625rem;
+  }
+
+  .y2k-project-card__meta,
+  .y2k-project-tags,
+  .y2k-project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+
+  .y2k-project-card__meta {
+    align-items: center;
+    font-size: 0.6875rem;
+    color: var(--color-y2k-muted);
+  }
+
+  .y2k-project-card__meta > * + *::before {
+    content: "·";
+    margin-right: 0.375rem;
+  }
+
+  .y2k-project-status {
+    padding: 0.0625rem 0.375rem;
+    color: var(--color-y2k-construction-text);
+    background: var(--color-y2k-construction);
+    border: 1px solid var(--color-y2k-shadow);
+    font-weight: 700;
+  }
+
+  .y2k-project-status.is-ongoing {
+    color: var(--color-y2k-ongoing-text);
+    background: var(--color-y2k-ongoing);
+  }
+
+  .y2k-project-status.is-archived {
+    color: var(--color-y2k-text);
+    background: var(--color-y2k-panel);
+  }
+
+  .y2k-project-card__summary {
+    margin: 0;
+    min-height: 3em;
+  }
+
+  .y2k-project-tags {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.6875rem;
+    color: var(--color-y2k-title-start);
+  }
+
+  .y2k-project-details {
+    border-top: 1px dashed var(--color-y2k-shadow);
+    border-bottom: 1px dashed var(--color-y2k-shadow);
+    padding: 0.375rem 0;
+  }
+
+  .y2k-project-details summary {
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  .y2k-project-details dl {
+    margin: 0.5rem 0 0;
+  }
+
+  .y2k-project-details dl div {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+
+  .y2k-project-details dt {
+    font-weight: 700;
+  }
+
+  .y2k-project-details dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .y2k-project-links {
+    margin-top: auto;
+  }
+
+  .y2k-project-links .y2k-btn {
+    font-size: 0.6875rem;
+  }
+
+  @media (min-width: 40rem) {
+    .y2k-project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 26rem) {
+    .y2k-portfolio-stats {
+      grid-template-columns: 1fr;
+    }
   }
 
   .y2k-theme-toggle {

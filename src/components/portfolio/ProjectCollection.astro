@@ -1,0 +1,27 @@
+---
+import type { OpenSourceProject } from "../../common/types";
+import ProjectCard from "./ProjectCard.astro";
+
+interface Props {
+  id: string;
+  title: string;
+  eyebrow?: string;
+  projects: OpenSourceProject[];
+  featured?: boolean;
+}
+
+const { id, title, eyebrow, projects, featured = false } = Astro.props;
+---
+
+<section class="y2k-project-collection" aria-labelledby={`${id}-title`}>
+  <div class="y2k-title-bar">
+    <h2 id={`${id}-title`}>{title}</h2>
+    <span>{projects.length} item{projects.length === 1 ? "" : "s"}</span>
+  </div>
+  <div class="y2k-panel">
+    {eyebrow && <p class="y2k-project-collection__eyebrow">{eyebrow}</p>}
+    <div class="y2k-project-grid">
+      {projects.map((project) => <ProjectCard project={project} featured={featured} />)}
+    </div>
+  </div>
+</section>

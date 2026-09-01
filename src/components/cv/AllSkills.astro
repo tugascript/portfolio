@@ -3,72 +3,80 @@ import type { SkillsSection } from "./SkillsSection.astro";
 import SkillsSectionComponent from "./SkillsSection.astro";
 
 const languageSkills: SkillsSection = {
-    category: "Languages I Pretend to Know",
-    skills: [
-        {
-            memeName: "To be transpiled into JS",
-            realName: "TypeScript",
-            topicTitle: "Probably production-safe",
-            learningTitle: "Needs adult supervision",
-            topics: ["Node.js", "Express", "Fastify", "NestJS", "React", "React Native"],
-            learning: ["Astro", "LangChain", "LangGraph"],
-        },
-        {
-            memeName: "Owned and borrowed C++",
-            realName: "Rust",
-            topicTitle: "I know what I'm doing",
-            learningTitle: "I know where the docs are",
-            topics: ["Tokio", "Actix Web", "SeaORM"],
-            learning: ["Axum", "Leptos", "Burn"],
-        },
-        {
-            memeName: "Garbage-collected C",
-            realName: "Go",
-            topicTitle: "Compiles first time",
-            learningTitle: "Eventually compiles",
-            topics: ["Fiber", "gRPC", "sqlc"],
-            learning: ["Gin"],
-        },
-        {
-            memeName: "Snake script",
-            realName: "Python",
-            topicTitle: "Trust me with this",
-            learningTitle: "Trust me at your own risk",
-            topics: ["Django", "DRF", "NumPy", "Pandas", "statsmodels"],
-            learning: ["PyTorch", "FastAPI", "LangChain", "LangGraph"],
-        },
-    ],
+  category: "Languages I Pretend to Know",
+  skills: [
+    {
+      memeName: "To be transpiled into JS",
+      realName: "TypeScript",
+      topicTitle: "Probably production-safe",
+      learningTitle: "Needs adult supervision",
+      topics: [
+        "Node.js",
+        "Express",
+        "Fastify",
+        "NestJS",
+        "React",
+        "React Native",
+      ],
+      learning: ["Astro", "LangChain", "LangGraph"],
+    },
+    {
+      memeName: '"C++ for Dummies"',
+      realName: "Rust",
+      topicTitle: "I know what I'm doing",
+      learningTitle: "I know where the docs are",
+      topics: ["Tokio", "Actix Web", "SeaORM"],
+      learning: ["Axum", "Leptos", "Burn"],
+    },
+    {
+      memeName: "C's garbage-collected cousin",
+      realName: "Go",
+      topicTitle: "Compiles first time",
+      learningTitle: "Eventually compiles",
+      topics: ["Fiber", "gRPC", "sqlc"],
+      learning: ["Gin"],
+    },
+    {
+      memeName: "Interpreted snake language",
+      realName: "Python",
+      topicTitle: "Trust me with this",
+      learningTitle: "Trust me at your own risk",
+      topics: ["Django", "DRF", "NumPy", "Pandas", "statsmodels"],
+      learning: ["PyTorch", "FastAPI", "LangChain", "LangGraph"],
+    },
+  ],
 };
 
 const platformSkills: SkillsSection = {
-    category: "Things I've Broken in Production",
-    skills: [
-        {
-            memeName: "Fancy disks and infra SMS",
-            realName: "Data & Messaging",
-            topicTitle: "No tutorial needed",
-            learningTitle: "Tutorial tab open",
-            topics: ["PostgreSQL", "Redis", "Kafka", "Object Storage (S3)"],
-            learning: ["pgvector", "Qdrant", "SurrealDB"],
-        },
-        {
-            memeName: "Rented computers",
-            realName: "Cloud & Infrastructure",
-            topicTitle: "Can ship",
-            learningTitle: "Can maybe ship",
-            topics: ["AWS", "Docker", "Podman", "Terraform", "Kubernetes"],
-            learning: ["Azure", "Pulumi"],
-        }
-    ],
+  category: "Things I've Broken in Production",
+  skills: [
+    {
+      memeName: "Fancy disks and infra SMS",
+      realName: "Data & Messaging",
+      topicTitle: "No tutorial needed",
+      learningTitle: "Tutorial tab open",
+      topics: ["PostgreSQL", "Redis", "Kafka", "Object Storage (S3)"],
+      learning: ["pgvector", "Qdrant", "SurrealDB"],
+    },
+    {
+      memeName: "Rented computers",
+      realName: "Cloud & Infrastructure",
+      topicTitle: "Can ship",
+      learningTitle: "Can maybe ship",
+      topics: ["AWS", "Docker", "Podman", "Terraform", "Kubernetes"],
+      learning: ["Azure", "Pulumi"],
+    },
+  ],
 };
-
 ---
 
-
 <section id="all-skills">
-    <div class="y2k-title-bar">My tech stack.exe</div>
-    <div class="y2k-panel">
-        <SkillsSectionComponent {...languageSkills} />
-        <SkillsSectionComponent {...platformSkills} />
-    </div>
+  <div class="y2k-title-bar">
+    <h2 id="all-skills-title">My tech stack.exe</h2>
+    <span aria-hidden="true">— <b>□</b> x</span>
+  </div>
+  <div class="y2k-panel">
+    <SkillsSectionComponent {...languageSkills} />
+    <SkillsSectionComponent {...platformSkills} />
+  </div>
 </section>

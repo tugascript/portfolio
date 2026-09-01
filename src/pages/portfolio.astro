@@ -1,10 +1,60 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Y2KPageShell from '../components/Y2KPageShell.astro';
+import Layout from "../layouts/Layout.astro";
+import ProjectCollection from "../components/portfolio/ProjectCollection.astro";
+import opensourceData from "../common/data/opensource.json";
+import type { OpenSourceProject } from "../common/types";
+import WindowsButtonDecoration from "../components/common/WindowsButtonDecoration.astro";
+import Devider from "../components/common/Devider.astro";
+
+const projects = (opensourceData as OpenSourceProject[]).toSorted((a, b) =>
+  b.startDate.year === a.startDate.year
+    ? (b.startDate.month ?? 0) - (a.startDate.month ?? 0)
+    : b.startDate.year - a.startDate.year,
+);
+const featuredProjects = projects.filter((project) => project.highlighted);
+const languages = new Set(projects.flatMap((project) => project.languages));
+const activeProjects = projects.filter((project) =>
+  ["Ongoing", "Maintenance"].includes(project.status),
+);
 ---
 
 <Layout title="Portfolio · TugaScript">
-	<Y2KPageShell title="My Portfolio" underConstruction>
-		<p>Projects coming soon. Check back later!!!</p>
-	</Y2KPageShell>
+  <section class="y2k-portfolio-hero" aria-labelledby="portfolio-title">
+    <div class="y2k-title-bar">
+      <h1 id="portfolio-title">portfolio.exe</h1>
+      <WindowsButtonDecoration />
+    </div>
+    <div class="y2k-panel">
+      <p class="y2k-portfolio-kicker">C:\TUGASCRIPT\OPEN_SOURCE&gt;</p>
+      <p class="y2k-portfolio-intro">
+        Blah, blah, blah, I know how to code! Browse all the unpaid hours I've
+        spent proving it, check the archive, inspect the stack, or go straight
+        to the source.
+      </p>
+      <dl class="y2k-portfolio-stats" aria-label="Portfolio summary">
+        <div><dt>Projects</dt><dd>{projects.length}</dd></div>
+        <div><dt>Active</dt><dd>{activeProjects.length}</dd></div>
+        <div><dt>Languages</dt><dd>{languages.size}</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <Devider />
+
+  <ProjectCollection
+    id="featured-projects"
+    title="★ Featured downloads ★"
+    eyebrow="Hand-picked from the archive, double-clicking is optional!"
+    projects={featuredProjects}
+    featured
+  />
+
+  <Devider />
+
+  <ProjectCollection
+    id="all-projects"
+    title="All projects"
+    eyebrow="More than 20 years in the future?! Sorted newest first."
+    projects={projects}
+  />
 </Layout>

@@ -1,36 +1,41 @@
 ---
+import WindowsButtonDecoration from "../common/WindowsButtonDecoration.astro";
 
 type AboutMe = {
-    readonly name: string;
-    readonly location: string;
-    readonly jobTitle: string;
-    readonly subtitle: string;
-}
+  readonly name: string;
+  readonly location: string;
+  readonly jobTitle: string;
+  readonly subtitle: string;
+};
 
 const aboutMe: AboutMe = {
-    name: "Afonso Barracha",
-    location: "NZ's biggest non-capital city",
-    jobTitle: "Software Writter With Some Seniority",
-    subtitle: "Microservices design & some security stuff",
-}
-
+  name: "Afonso Barracha",
+  location: "NZ's biggest non-capital city",
+  jobTitle: "Software Writter With Some Seniority",
+  subtitle: "Microservices design & some security stuff",
+};
 ---
 
 <section id="about-me">
-    <div class="y2k-title-bar">Kia ora, I'm...</div>
-    <div class="y2k-panel">
-        <h1 class="text-2xl font-bold">{aboutMe.name}</h1>
-        <p class="y2k-accent-text mt-1 font-bold">{aboutMe.jobTitle}</p>
-        <p class="mt-1">
-            <span aria-hidden="true">☞ </span>
-            {aboutMe.location}
-        </p>
-        <p class="mt-2">{aboutMe.subtitle}</p>
-    </div>
+  <div class="y2k-title-bar">
+    <h2 id="about-me-title">Kia ora, I'm...</h2>
+    <WindowsButtonDecoration />
+  </div>
+  <div class="y2k-panel">
+    <h1 class="text-2xl font-bold">{aboutMe.name}</h1>
+    <p class="y2k-accent-text mt-1 font-bold">{aboutMe.jobTitle}</p>
+    <p class="mt-1">
+      <span aria-hidden="true">☞ </span>
+      {aboutMe.location}
+    </p>
+    <p class="mt-2">{aboutMe.subtitle}</p>
+  </div>
 
-    <div class="y2k-marquee-wrap mt-2" aria-hidden="true">
-        <div class="y2k-marquee-inner">
-            ★ {aboutMe.jobTitle} ★ {aboutMe.subtitle} ★ Welcome to TugaScript ★ {aboutMe.jobTitle} ★ {aboutMe.subtitle} ★
-        </div>
+  <div class="y2k-marquee-wrap mt-2" aria-hidden="true">
+    <div class="y2k-marquee-inner">
+      ★ {aboutMe.jobTitle} ★ {aboutMe.subtitle} ★ Welcome to TugaScript ★ {
+        aboutMe.jobTitle
+      } ★ {aboutMe.subtitle} ★
     </div>
+  </div>
 </section>
