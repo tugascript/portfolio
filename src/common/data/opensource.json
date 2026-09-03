@@ -1,5 +1,44 @@
 [
   {
+    "name": "Loan Calculator",
+    "summary": "Simple intervew take home project to calculate the monthly payment of a loan",
+    "highlighted": false,
+    "startDate": {
+      "year": 2026,
+      "month": 2
+    },
+    "endDate": {
+      "year": 2026,
+      "month": 2
+    },
+    "status": "Archived",
+    "role": "Author",
+    "primaryLanguage": "Go",
+    "languages": [
+      "Go"
+    ],
+    "frameworks": [
+      "gRPC"
+    ],
+    "databases": [
+      "PostgreSQL"
+    ],
+    "libraries": [
+      "pgx",
+      "gRPC-Gateway"
+    ],
+    "tools": [
+      "sqlc"
+    ],
+    "urls": {
+      "repositoryUrl": "https://github.com/tugascript/loan_calculator"
+    },
+    "tags": [
+      "Loan",
+      "Calculator"
+    ]
+  },
+  {
     "name": "My Fitness Tale",
     "summary": "Offline version of BuffQuest, simple workout tracker without gamification",
     "startDate": {
@@ -10,14 +49,33 @@
     "status": "Ongoing",
     "role": "Author",
     "primaryLanguage": "Dart",
-    "languages": ["Dart", "SQL", "Go"],
-    "frameworks": ["Flutter", "gRPC"],
-    "databases": ["SQLite", "PostgreSQL"],
-    "libraries": ["Bloc", "Sqlflite", "go_router"],
+    "languages": [
+      "Dart",
+      "SQL",
+      "Go"
+    ],
+    "frameworks": [
+      "Flutter",
+      "gRPC"
+    ],
+    "databases": [
+      "SQLite",
+      "PostgreSQL"
+    ],
+    "libraries": [
+      "Bloc",
+      "Sqlflite",
+      "go_router"
+    ],
     "tools": [],
-    "repositoryUrl": "https://github.com/tugascript/offline-myfitnesstale",
-    "internalSeriesBlogPath": "myfitnesstale",
-    "tags": ["Fitness", "Workout", "Tracker"]
+    "urls": {
+      "repositoryUrl": "https://github.com/tugascript/offline-myfitnesstale"
+    },
+    "tags": [
+      "Fitness",
+      "Workout",
+      "Tracker"
+    ]
   },
   {
     "name": "DevLogs",
@@ -30,14 +88,38 @@
     "status": "Ongoing",
     "role": "Author",
     "primaryLanguage": "Go",
-    "languages": ["Go", "SQL"],
-    "frameworks": ["Fiber"],
-    "databases": ["PostgreSQL", "Redis", "Vault"],
-    "libraries": ["pgx", "openbao", "jwt", "crypto", "oauth2"],
-    "tools": ["Podman", "sqlc"],
-    "repositoryUrl": "https://github.com/tugascript/devlogs",
-    "devToSeriesUrl": "https://dev.to/tugascript/go-for-node-developers-creating-an-idp-from-scratch-set-up-29nh",
-    "tags": ["OAuth 2.0", "IDP", "MCP"]
+    "languages": [
+      "Go",
+      "SQL"
+    ],
+    "frameworks": [
+      "Fiber"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "Redis",
+      "Vault"
+    ],
+    "libraries": [
+      "pgx",
+      "openbao",
+      "jwt",
+      "crypto",
+      "oauth2"
+    ],
+    "tools": [
+      "Podman",
+      "sqlc"
+    ],
+    "urls": {
+      "repositoryUrl": "https://github.com/tugascript/devlogs",
+      "devToSeriesUrl": "https://dev.to/tugascript/go-for-node-developers-creating-an-idp-from-scratch-set-up-29nh"
+    },
+    "tags": [
+      "OAuth 2.0",
+      "IDP",
+      "MCP"
+    ]
   },
   {
     "name": "Rust Keyword Extraction",
@@ -54,17 +136,71 @@
     "status": "Maintenance",
     "role": "Author",
     "primaryLanguage": "Rust",
-    "languages": ["Rust"],
+    "languages": [
+      "Rust"
+    ],
     "frameworks": [],
     "databases": [],
     "libraries": [],
     "tools": [],
-    "repositoryUrl": "https://github.com/tugascript/keyword-extraction-rs",
-    "packageUrl": "https://crates.io/crates/keyword_extraction",
-    "documentationUrl": "https://docs.rs/keyword_extraction/1.5.0/keyword_extraction",
-    "internalSeriesBlogPath": "rust-keyword-extraction",
-    "devToSeriesUrl": "https://dev.to/tugascript/series/22447",
-    "tags": ["NLP", "Keyword Extraction", "Text Extraction"]
+    "urls": {
+      "repositoryUrl": "https://github.com/tugascript/keyword-extraction-rs",
+      "packageUrl": "https://crates.io/crates/keyword_extraction",
+      "documentationUrl": "https://docs.rs/keyword_extraction/1.5.0/keyword_extraction",
+      "devToSeriesUrl": "https://dev.to/tugascript/series/22447"
+    },
+    "tags": [
+      "NLP",
+      "Keyword Extraction",
+      "Text Extraction"
+    ]
+  },
+  {
+    "name": "NestJS GraphQL",
+    "summary": "Enhancements to the NestJS GraphQL Mercurius integration, adding hooks and pluggins support",
+    "highlighted": false,
+    "startDate": {
+      "year": 2022,
+      "month": 12
+    },
+    "endDate": {
+      "year": 2023,
+      "month": 2
+    },
+    "status": "Completed",
+    "role": "Contributor",
+    "primaryLanguage": "TypeScript",
+    "languages": [
+      "TypeScript"
+    ],
+    "frameworks": [
+      "NestJS",
+      "Fastify",
+      "Mercurius"
+    ],
+    "databases": [],
+    "libraries": [],
+    "tools": [],
+    "urls": {
+      "repositoryUrl": "https://github.com/nestjs/graphql",
+      "contributionUrls": [
+        {
+          "pullRequestUrl": "https://github.com/nestjs/graphql/pull/2538"
+        },
+        {
+          "pullRequestUrl": "https://github.com/nestjs/graphql/pull/2546"
+        },
+        {
+          "pullRequestUrl": "https://github.com/nestjs/graphql/pull/2635"
+        }
+      ]
+    },
+    "tags": [
+      "GraphQL",
+      "NestJS",
+      "Fastify",
+      "Mercurius"
+    ]
   },
   {
     "name": "NestJS Authentication with OAuth 2.0",
@@ -81,15 +217,34 @@
     "status": "Archived",
     "role": "Author",
     "primaryLanguage": "TypeScript",
-    "languages": ["TypeScript", "SQL"],
-    "frameworks": ["NestJS", "Express", "Fastify", "Apollo Server"],
-    "databases": ["PostgreSQL", "Redis"],
-    "libraries": ["jwt"],
-    "tools": ["Node.js"],
-    "repositoryUrl": "https://github.com/tugascript/nestjs-authentication-with-oauth2.0",
-    "internalSeriesBlogPath": "nestjs-authentication-with-oauth2.0",
-    "devToSeriesUrl": "https://dev.to/tugascript/series/21297",
-    "tags": ["Authentication", "OAuth 2.0"]
+    "languages": [
+      "TypeScript",
+      "SQL"
+    ],
+    "frameworks": [
+      "NestJS",
+      "Express",
+      "Fastify",
+      "Apollo Server"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "Redis"
+    ],
+    "libraries": [
+      "jwt"
+    ],
+    "tools": [
+      "Node.js"
+    ],
+    "urls": {
+      "repositoryUrl": "https://github.com/tugascript/nestjs-authentication-with-oauth2.0",
+      "devToSeriesUrl": "https://dev.to/tugascript/series/21297"
+    },
+    "tags": [
+      "Authentication",
+      "OAuth 2.0"
+    ]
   },
   {
     "name": "NestJS GraphQL Chat",
@@ -106,14 +261,77 @@
     "status": "Archived",
     "role": "Author",
     "primaryLanguage": "TypeScript",
-    "languages": ["TypeScript"],
-    "frameworks": ["NestJS", "Express", "Apollo Server"],
-    "libraries": ["React"],
-    "databases": ["Redis", "PostgreSQL"],
-    "tools": ["Node.js", "GraphQL"],
-    "repositoryUrl": "https://github.com/tugascript/nestjs-graphql-chat",
-    "documentationUrl": "https://dev.to/tugascript/ephemeral-chats-2ici",
-    "tags": ["Chat", "GraphQL"]
+    "languages": [
+      "TypeScript"
+    ],
+    "frameworks": [
+      "NestJS",
+      "Express",
+      "Apollo Server"
+    ],
+    "libraries": [
+      "React"
+    ],
+    "databases": [
+      "Redis",
+      "PostgreSQL"
+    ],
+    "tools": [
+      "Node.js",
+      "GraphQL"
+    ],
+    "urls": {
+      "repositoryUrl": "https://github.com/tugascript/nestjs-graphql-chat",
+      "hackathonUrl": "https://dev.to/tugascript/ephemeral-chats-2ici"
+    },
+    "tags": [
+      "Chat",
+      "GraphQL"
+    ]
+  },
+  {
+    "name": "ETC Academy",
+    "summary": "Educational platform made as a final project of ISCTE-IUL & Deloitte's Cloud Engineering program",
+    "highlighted": false,
+    "startDate": {
+      "year": 2022,
+      "month": 8
+    },
+    "endDate": {
+      "year": 2022,
+      "month": 8
+    },
+    "status": "Archived",
+    "role": "Author",
+    "primaryLanguage": "TypeScript",
+    "languages": [
+      "TypeScript"
+    ],
+    "frameworks": [
+      "NestJS",
+      "Express",
+      "Apollo Server"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "Redis"
+    ],
+    "libraries": [
+      "Apollo Gateway",
+      "MikroORM"
+    ],
+    "tools": [
+      "Node.js",
+      "GraphQL"
+    ],
+    "urls": {
+      "repositoryUrl": "https://github.com/tugascript/etc-academy-monorepo"
+    },
+    "tags": [
+      "Education",
+      "Platform",
+      "Microservices"
+    ]
   },
   {
     "name": "Flutter Slider",
@@ -130,13 +348,65 @@
     "status": "Archived",
     "role": "Author",
     "primaryLanguage": "Dart",
-    "languages": ["Dart", "TypeScript"],
-    "frameworks": ["Flutter", "NestJS", "Express", "Apollo Server"],
-    "databases": ["PostgreSQL"],
+    "languages": [
+      "Dart",
+      "TypeScript"
+    ],
+    "frameworks": [
+      "Flutter",
+      "NestJS",
+      "Express",
+      "Apollo Server"
+    ],
+    "databases": [
+      "PostgreSQL"
+    ],
     "libraries": [],
-    "tools": ["Flutter"],
-    "repositoryUrl": "https://github.com/tugascript/flutter-slider",
-    "documentationUrl": "https://devpost.com/software/flutter-slider-ut4cr1",
-    "tags": ["Puzzle", "Game"]
+    "tools": [
+      "Flutter"
+    ],
+    "urls": {
+      "repositoryUrl": "https://github.com/tugascript/flutter-slider",
+      "hackathonUrl": "https://devpost.com/software/flutter-slider-ut4cr1"
+    },
+    "tags": [
+      "Puzzle",
+      "Game"
+    ]
+  },
+  {
+    "name": "Basic Image Editor",
+    "summary": "Simple React-based image cropper, compressor and converter website",
+    "highlighted": false,
+    "startDate": {
+      "year": 2022,
+      "month": 2
+    },
+    "endDate": {
+      "year": 2022,
+      "month": 2
+    },
+    "status": "Archived",
+    "role": "Author",
+    "primaryLanguage": "TypeScript",
+    "languages": [
+      "TypeScript"
+    ],
+    "frameworks": [
+      "Next.js"
+    ],
+    "databases": [],
+    "libraries": [
+      "React",
+      "Redux"
+    ],
+    "tools": [],
+    "urls": {
+      "repositoryUrl": "https://github.com/tugascript/basic-image-editor"
+    },
+    "tags": [
+      "Image",
+      "Editor"
+    ]
   }
 ]

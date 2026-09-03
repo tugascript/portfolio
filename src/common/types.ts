@@ -24,6 +24,7 @@ export enum ProgrammingLanguage {
 
 export enum ProgrammingFramework {
   NestJS = "NestJS",
+  NextJs = "Next.js",
   Express = "Express",
   Fastify = "Fastify",
   ApolloServer = "Apollo Server",
@@ -49,6 +50,23 @@ export type CvDataDate = {
   readonly year: number;
 };
 
+type ContributionUrls = {
+  readonly pullRequestUrl: string;
+  readonly issueUrl?: string;
+}
+
+type OpenSourceProjectUrls = {
+  readonly repositoryUrl?: string;
+  readonly packageUrl?: string;
+  readonly documentationUrl?: string;
+  readonly websiteUrl?: string;
+  readonly internalSeriesBlogPath?: string;
+  readonly devToSeriesUrl?: string;
+  readonly hackathonUrl?: string;
+  readonly contributionUrls?: ContributionUrls[];
+  readonly issueUrl?: string;
+};
+
 export type OpenSourceProject = {
   readonly name: string;
   readonly summary: string;
@@ -66,11 +84,7 @@ export type OpenSourceProject = {
   readonly libraries: string[];
   readonly tools: string[];
 
-  readonly repositoryUrl?: string;
-  readonly packageUrl?: string;
-  readonly documentationUrl?: string;
-  readonly websiteUrl?: string;
-  readonly internalSeriesBlogPath?: string;
-  readonly devToSeriesUrl?: string;
+  readonly urls: OpenSourceProjectUrls;
+
   readonly tags: string[];
 };

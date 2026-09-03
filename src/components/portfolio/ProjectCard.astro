@@ -7,11 +7,13 @@ interface Props {
 }
 
 const { project, featured = false } = Astro.props;
+const { urls } = project;
 const tags = project.tags ?? [];
 const languages = project.languages ?? [];
 const frameworks = project.frameworks ?? [];
 const libraries = project.libraries ?? [];
 const tools = project.tools ?? [];
+const contributions = urls.contributionUrls ?? [];
 
 const formatDate = ({ month, year }: OpenSourceProject["startDate"]) =>
   month
@@ -19,6 +21,11 @@ const formatDate = ({ month, year }: OpenSourceProject["startDate"]) =>
         new Date(year, month - 1),
       )
     : String(year);
+
+const pullRequestLabel = (url: string) => {
+  const match = url.match(/\/pull\/(\d+)/);
+  return match ? `PR #${match[1]}` : "Pull request";
+};
 
 const timeline = project.endDate
   ? `${formatDate(project.startDate)} - ${formatDate(project.endDate)}`
@@ -29,19 +36,43 @@ const stack = [...languages, ...frameworks, ...libraries, ...tools].filter(
 );
 
 const links = [
-  { label: "Source code", href: project.repositoryUrl },
-  { label: "Package", href: project.packageUrl },
-  { label: "Docs", href: project.documentationUrl },
-  { label: "Website", href: project.websiteUrl },
-  { label: "DEV series", href: project.devToSeriesUrl },
-].filter((link): link is { label: string; href: string } => Boolean(link.href));
+  { label: "Source code", href: urls.repositoryUrl, external: true },
+  { label: "Package", href: urls.packageUrl, external: true },
+  { label: "Docs", href: urls.documentationUrl, external: true },
+  { label: "Website", href: urls.websiteUrl, external: true },
+  { label: "DEV series", href: urls.devToSeriesUrl, external: true },
+  { label: "Hackathon", href: urls.hackathonUrl, external: true },
+  { label: "Blog series", href: urls.internalSeriesBlogPath, external: false },
+  { label: "Issue", href: urls.issueUrl, external: true },
+].filter((link): link is { label: string; href: string; external: boolean } =>
+  Boolean(link.href),
+);
+
+if (contributions.length === 1) {
+  const [contribution] = contributions;
+  links.push({
+    label: "Pull request",
+    href: contribution.pullRequestUrl,
+    external: true,
+  });
+  if (contribution.issueUrl) {
+    links.push({
+      label: "Issue",
+      href: contribution.issueUrl,
+      external: true,
+    });
+  }
+}
+
+const showContributionsAccordion = contributions.length > 1;
+const showLinksNav = links.length > 0 || showContributionsAccordion;
 ---
 
 <article
   class:list={["y2k-project-card", { "y2k-project-card--featured": featured }]}
 >
   <header class="y2k-project-card__titlebar">
-    <span aria-hidden="true">{featured ? "★" : "▣"}</span>
+    <span aria-hidden="true">{project.highlighted ? "★" : "▣"}</span>
     <h3>{project.name}</h3>
     <span class="y2k-project-card__controls" aria-hidden="true"
       >— <b>□</b> x</span
@@ -93,19 +124,50 @@ const links = [
     </details>
 
     {
-      links.length > 0 && (
+      showLinksNav && (
         <nav class="y2k-project-links" aria-label={`${project.name} links`}>
           {links.map((link, index) => (
             <a
               class="y2k-btn"
               href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(link.external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
             >
               {index === 0 ? "> " : ""}
               {link.label}
             </a>
           ))}
+          {showContributionsAccordion && (
+            <details class="y2k-project-contributions">
+              <summary class="y2k-btn">
+                {links.length === 0 ? "> " : ""}Contributions (
+                {contributions.length}) V
+              </summary>
+              <ul>
+                {contributions.map((entry) => (
+                  <li>
+                    <a
+                      href={entry.pullRequestUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {pullRequestLabel(entry.pullRequestUrl)}
+                    </a>
+                    {entry.issueUrl && (
+                      <a
+                        href={entry.issueUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Issue
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
         </nav>
       )
     }

@@ -10,7 +10,7 @@ type AboutMe = {
 
 const aboutMe: AboutMe = {
   name: "Afonso Barracha",
-  location: "NZ's biggest non-capital city",
+  location: "NZ's biggest non-capital city (Auckland)",
   jobTitle: "Software Writter With Some Seniority",
   subtitle: "Microservices design & some security stuff",
 };
@@ -24,7 +24,7 @@ const aboutMe: AboutMe = {
   <div class="y2k-panel">
     <h1 class="text-2xl font-bold">{aboutMe.name}</h1>
     <p class="y2k-accent-text mt-1 font-bold">{aboutMe.jobTitle}</p>
-    <p class="mt-1">
+    <p class="mt-1 y2k-muted-text">
       <span aria-hidden="true">☞ </span>
       {aboutMe.location}
     </p>
