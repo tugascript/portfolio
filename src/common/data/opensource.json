@@ -238,7 +238,7 @@
       "Node.js"
     ],
     "urls": {
-      "repositoryUrl": "https://github.com/tugascript/nestjs-authentication-with-oauth2.0",
+      "repositoryUrl": "https://github.com/tugascript/nestjs-oauth",
       "devToSeriesUrl": "https://dev.to/tugascript/series/21297"
     },
     "tags": [

@@ -142,7 +142,11 @@ const showLinksNav = links.length > 0 || showContributionsAccordion;
             <details class="y2k-project-contributions">
               <summary class="y2k-btn">
                 {links.length === 0 ? "> " : ""}Contributions (
-                {contributions.length}) V
+                {contributions.length})
+                <span class="y2k-project-contributions-icon" aria-hidden="true">
+                  <span class="y2k-project-contributions-icon-open">V</span>
+                  <span class="y2k-project-contributions-icon-close">X</span>
+                </span>
               </summary>
               <ul>
                 {contributions.map((entry) => (
